@@ -58,7 +58,7 @@ public class XlsDto2Excel {
             } 
         } 
         // 创建文件输出流，准备输出电子表格 
-        OutputStream out = new FileOutputStream("POI2Excel/poiOut.xls"); 
+        OutputStream out = new FileOutputStream("F:/design/poi/poiOut.xls"); 
         hwb.write(out); 
         out.close(); 
         System.out.println("数据库导出成功"); 

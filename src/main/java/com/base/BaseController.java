@@ -26,6 +26,6 @@ public class BaseController {
             HttpServletResponse response, HttpServletRequest request)
             throws IOException {
         log.error(exception.getMessage(), exception);
-      //  response.sendRedirect(request.getContextPath() + "/jsp/404.jsp");
+        response.sendRedirect(request.getContextPath() + "/jsp/404.jsp");
     }
 }

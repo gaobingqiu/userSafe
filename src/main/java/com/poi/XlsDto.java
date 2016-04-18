@@ -4,7 +4,7 @@ public class XlsDto {
 	/**
 	 * 选课号
 	 */
-	private Integer xkh;
+	private String xkh;
 	/**
 	 * 学号
 	 */
@@ -30,11 +30,11 @@ public class XlsDto {
 	 */
 	private float cj;
 
-	public Integer getXkh() {
+	public String getXkh() {
 		return xkh;
 	}
 
-	public void setXkh(Integer xkh) {
+	public void setXkh(String xkh) {
 		this.xkh = xkh;
 	}
 

@@ -38,7 +38,7 @@ public class XlsMain {
      *             输入/输出(i/o)异常 
      */
     private List<XlsDto> readXls() throws IOException { 
-        InputStream is = new FileInputStream("poi.xls"); 
+        InputStream is = new FileInputStream("F:/design/poi/poi.xls"); 
         HSSFWorkbook hssfWorkbook = new HSSFWorkbook(is); 
         XlsDto xlsDto = null; 
         List<XlsDto> list = new ArrayList<XlsDto>(); 
