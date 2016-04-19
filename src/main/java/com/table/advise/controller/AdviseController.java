@@ -29,7 +29,7 @@ public class AdviseController extends BaseController{
 
     @RequestMapping("/goList")
     public String goList(HttpServletRequest request) {
-        return "advise/list";
+        return "table/advise/list";
     }
 
     @RequestMapping("/getAllAdvise")

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.table.user.entity.User;
 import com.table.user.service.UserService;
@@ -13,6 +14,7 @@ import com.table.user.service.UserService;
  * @author gbq
  * 2016年4月19日
  */
+@Service
 public class LoginService {
 	@Autowired 
 	private UserService userService;

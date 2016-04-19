@@ -29,7 +29,7 @@ public class RecordsController extends BaseController{
 
     @RequestMapping("/goList")
     public String goList(HttpServletRequest request) {
-        return "records/list";
+        return "table/records/list";
     }
 
     @RequestMapping("/getAllRecords")

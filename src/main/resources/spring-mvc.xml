@@ -19,7 +19,7 @@
 	<context:component-scan base-package="com.table.*.controller" />
 	
 	<!-- 这里只能扫描基础控制器 -->
-	<context:component-scan base-package="com.web.*" />
+	<context:component-scan base-package="web.*.controller" />
 	
 	<!-- 开启注解 @controller、@requestMapping -->  
     <mvc:annotation-driven />  

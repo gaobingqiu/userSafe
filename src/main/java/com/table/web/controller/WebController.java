@@ -29,7 +29,7 @@ public class WebController extends BaseController{
 
     @RequestMapping("/goList")
     public String goList(HttpServletRequest request) {
-        return "web/list";
+        return "table/web/list";
     }
 
     @RequestMapping("/getAllWeb")

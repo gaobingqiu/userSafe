@@ -29,7 +29,7 @@ public class ManagerController extends BaseController{
 
     @RequestMapping("/goList")
     public String goList(HttpServletRequest request) {
-        return "manager/list";
+        return "table/manager/list";
     }
 
     @RequestMapping("/getAllManager")

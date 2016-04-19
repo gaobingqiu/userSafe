@@ -29,7 +29,7 @@ public class UserController extends BaseController{
 
     @RequestMapping("/goList")
     public String goList(HttpServletRequest request) {
-        return "user/list";
+        return "table/user/list";
     }
 
     @RequestMapping("/getAllUser")

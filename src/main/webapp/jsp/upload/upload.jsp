@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="../js/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="upload.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>文件上传</title>

@@ -82,6 +82,12 @@
 			expression=".*controller$" />
 	</context:component-scan>
 
+    <!-- 扫描除了控制器外的其他注解 -->
+	<context:component-scan base-package="web.*">
+		<context:exclude-filter type="regex"
+			expression=".*controller$" />
+	</context:component-scan>
+
 	<!-- 定义事务 -->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
