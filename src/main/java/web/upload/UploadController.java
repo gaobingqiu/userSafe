@@ -1,4 +1,4 @@
-package com.web;
+package web.upload;
 
 import java.io.File;
 import java.io.FileOutputStream;

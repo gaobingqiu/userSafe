@@ -53,5 +53,11 @@ public class UserserviceImpl extends BaseService implements UserService {
 		int rows = pageBean.getPageSize();
 		return dao.findPager(hql, page, rows);
 	}
-
+	
+	@Override
+	public User getUserByName(String name){
+		String hql = "from User where userName =?";
+		User user = dao.findObject(hql, name);
+		return user;
+	}
 }
