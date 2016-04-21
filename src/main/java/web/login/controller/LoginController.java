@@ -35,4 +35,9 @@ public class LoginController extends BaseController{
 	public String toLogin(HttpServletRequest request){
 		return "web/login/login";
 	}
+	
+	@RequestMapping("/toRegister")
+	public String toRegister(HttpServletRequest request){
+		return "web/login/register";
+	}
 }
