@@ -18,5 +18,7 @@ public interface UserService {
 	public Pager<User> getByPage(PageBean pageBean);
 	
 	public User getUserByName(String name);
+
+	public void disable(Integer id);
 		
 }

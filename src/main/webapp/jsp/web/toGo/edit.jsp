@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="/header.jsp"%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>操作成功！</title>
 </head>
 <body>

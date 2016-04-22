@@ -52,5 +52,10 @@ public class WebServiceImpl extends BaseService implements WebService {
 		int rows = pageBean.getPageSize();
 		return dao.findPager(hql, page, rows);
 	}
-
+	
+	@Override
+	public List<Web> getWebs(){
+		String hql="select top 20 * from Web order by score";
+		return dao.findList(hql);
+	}
 }

@@ -24,7 +24,7 @@
 					<tr>
 						<td>${list.name }</td>
 						<td>${list.password }</td>
-						<td>${list.url }</td>
+						<td>${list.usrl }</td>
 						<td><a href="javascript:edit(${list.id })">编辑</a> 
 						<a href="javascript:delete(${list.id })"></a></td>
 					</tr>

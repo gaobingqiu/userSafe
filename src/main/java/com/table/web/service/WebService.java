@@ -11,6 +11,8 @@ public interface WebService {
 	
 	public List<Web> getAllWeb();
 	
+	public List<Web> getWebs();
+	
 	public void saveOrUpdate(Web web);
 	
 	public boolean deleteWeb(Integer id);

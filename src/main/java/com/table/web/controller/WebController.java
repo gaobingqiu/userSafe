@@ -2,6 +2,7 @@ package com.table.web.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -88,5 +89,11 @@ public class WebController extends BaseController{
         }
     }
 
+    @RequestMapping("/getWebs")
+    @ResponseBody
+    public List<Web> getWebs(HttpServletRequest request) {
+        List<Web> list = webService.getWebs();
+        return list;
+    }
 }
 

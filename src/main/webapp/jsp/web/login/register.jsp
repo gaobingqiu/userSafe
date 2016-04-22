@@ -3,13 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="format-detection" content="telephone=no">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-touch-fullscreen" content="yes">
-<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<%@ include file="/header.jsp"%>
 <link rel="stylesheet" href="/css/web/login/global.css">
 <link rel="stylesheet" href="/css/web/login/register.css">
 <script type="text/javascript" src="/js/web/login/register.js"></script>
@@ -18,7 +12,7 @@
 <body>
 <body>
 	 <div id="layout">
-            <span>推浪网账号注册</span>
+            <span>注册，的账号安全管家</span>
             <form  method="post">
             <ul>
                 <p id="err_msg"></p>
@@ -30,7 +24,7 @@
             </ul>
                 <div class="reg_btn">
                     <button class="submit" type="submit">注册</button>
-                    <a href="login.html"><div class="reg-login"><p>已有帐号，立即登陆</p></div></a>
+                    <a href="/login/toLogin.do"><div class="reg-login"><p>已有帐号，立即登陆</p></div></a>
                 </div>
             </form>
         </div>

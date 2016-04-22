@@ -60,4 +60,11 @@ public class UserserviceImpl extends BaseService implements UserService {
 		User user = dao.findObject(hql, name);
 		return user;
 	}
+
+	@Override
+	public void disable(Integer id) {
+		// TODO Auto-generated method stub
+		String hql = "update User set enable=0 where id=?";
+		dao.executeSql(hql, id);
+	}
 }

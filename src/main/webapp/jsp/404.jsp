@@ -3,9 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<%@ include file="/header.jsp"%>
 <link rel="stylesheet" href="/css/404.css">
 <title>用户列表</title>
 </head>
@@ -20,7 +18,7 @@
 		<a href="http://www.mubanzhijia.com">&#9666;返回上一页</a>
 	</p>
 	<dl class="texts">
-		<dt>管家正在联系火星总部查找您所需要的页面.请返回等待信息..</dt>
+		<dt>你的管家正在联系火星总部查找您所需要的页面.请返回等待信息..</dt>
 		<dd>
 			<ul>
 				<li>不要返回吗?</li>

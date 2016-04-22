@@ -3,22 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="format-detection" content="telephone=no">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-touch-fullscreen" content="yes">
-<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<%@ include file="/header.jsp"%>
 <link rel="stylesheet" href="/css/web/login/global.css">
 <link rel="stylesheet" href="/css/web/login/register.css">
 <script type="text/javascript" src="/js/web/login/register.js"></script>
-<title>账号注册</title>
+<title>忘记密码了</title>
 </head>
 <body>
 <body>
 	 <div id="layout">
-            <span>推浪网账号注册</span>
+            <span>密码重置</span>
             <form  method="post">
             <ul>
                 <p id="err_msg"></p>
@@ -28,8 +22,8 @@
                 <li><i class="pw2"><img src="/css/web/images/pwd.png"></i><input class="pwd2" type="password" placeholder="请输入确认密码" /></li>
             </ul>
                 <div class="reg_btn">
-                    <button class="submit" type="submit">注册</button>
-                    <a href="login.html"><div class="reg-login"><p>已有帐号，立即登陆</p></div></a>
+                    <button class="submit" type="submit">确认重置</button>
+                    <a href="login/toLogin.do"><div class="reg-login"><p>灵光一闪，我想起来</p></div></a>
                 </div>
             </form>
         </div>

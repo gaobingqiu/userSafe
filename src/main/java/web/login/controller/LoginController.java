@@ -33,6 +33,7 @@ public class LoginController extends BaseController{
 	
 	@RequestMapping("/toLogin")
 	public String toLogin(HttpServletRequest request){
+		log.debug("转到登录页面!");
 		return "web/login/login";
 	}
 	
