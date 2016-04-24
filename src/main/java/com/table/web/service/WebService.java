@@ -18,5 +18,7 @@ public interface WebService {
 	public boolean deleteWeb(Integer id);
 	
 	public Pager<Web> getByPage(PageBean pageBean);
+
+	public Web getWebByName(String webName);
 	
 }

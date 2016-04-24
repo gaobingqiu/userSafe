@@ -58,4 +58,11 @@ public class WebServiceImpl extends BaseService implements WebService {
 		String hql="select top 20 * from Web order by score";
 		return dao.findList(hql);
 	}
+
+	@Override
+	public Web getWebByName(String webName) {
+		// TODO Auto-generated method stub
+		String hql="from Web where title = ?";
+		return dao.findObject(hql, webName);
+	}
 }
