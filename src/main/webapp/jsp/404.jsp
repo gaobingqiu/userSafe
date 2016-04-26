@@ -10,9 +10,6 @@
 <body>
 <body>
 	<h1></h1>
-	<h2>
-		<em><span class="STYLE1">404 Error&nbsp;&nbsp; </span></em>:所查找的页面不存在,可能已被删除或您输错了网址!
-	</h2>
 	<p class="link">
 		<a href="127.0.0.1:8080">&#9666;返回首页</a> 
 		<a href="http://www.mubanzhijia.com">&#9666;返回上一页</a>

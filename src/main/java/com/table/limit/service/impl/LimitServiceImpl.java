@@ -11,6 +11,11 @@ import com.table.limit.entity.Limit;
 import com.table.limit.entity.PassType;
 import com.table.limit.service.LimitService;
 
+/**
+ * 错误次数限制
+ * @author gbq
+ * 2016年4月24日
+ */
 @Service("limitService")
 public class LimitServiceImpl extends BaseService implements LimitService {
 

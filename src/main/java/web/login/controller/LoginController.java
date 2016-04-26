@@ -27,8 +27,9 @@ public class LoginController extends BaseController{
 	
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request,String userName,String password){
-		loginService.userLogin(request, userName, password);
+		if(loginService.userLogin(request, userName, password))
 		return "web/personal/index";
+		return "404";
 	}
 	
 	@RequestMapping("/toLogin")

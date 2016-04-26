@@ -9,7 +9,7 @@ import com.base.BaseController;
 
 @Controller
 @RequestMapping("/webLimit")
-public class LimitController extends BaseController {
+public class WebLimitController extends BaseController {
 
 	@RequestMapping("/goManager")
 	public String goList(HttpServletRequest request) {

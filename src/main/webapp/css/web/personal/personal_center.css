@@ -8,7 +8,7 @@ display: block;
 /*新手上路 begin*/
 .body_color{background:#eeeeee;}
 .xins_dh{width:100%;height:80px;float:left;background:#ff6600;}
-.xins_dhBg{width:352PX;height:80PX;float:left;background:url(../images/dh_bg.png) no-repeat;}
+.xins_dhBg{width:352PX;height:80PX;float:left;background:url(/images/personal/dh_bg.png) no-repeat;}
 .xins_icon01{width:34px;height:32px;float:left;margin:24px 0 0 20px;}
 .xins_dhBg span{display:block;height:80px;line-height:80px;float:left;color:#ffffff;}
 .xins_span01{padding-left:8px;}
@@ -17,7 +17,7 @@ display: block;
 .xins_search{width:100%;height:80px; line-height80px; float:left;background:#c1c2c2; font-size: 1.6rem;}
 .xins_sswk{position:relative;width:70%;height:54px;float:left;margin:12px 0 0 20px; }
 .xins_sswk input{display:block;border:0;width:100%;height:54px;float:left;text-indent:50px;line-height:54px;background:#e8eaeb;font-size:30px;}
-.xins_icon02{position:absolute;width:30px;height:30px;left:10px;top:12px;background:url(../images/xins_icon02.png) no-repeat;}
+.xins_icon02{position:absolute;width:30px;height:30px;left:10px;top:12px;background:url(/images/personal/xins_icon02.png) no-repeat;}
 .xins_alj{display:block;height:80px;float:left;margin-left:20px;line-height:80px;color:#646464;cursor:pointer;}
 
 .xins_stb{width:100%;height:150px;float:left;margin-top:20px;background:#f28108;}
@@ -29,11 +29,11 @@ display: block;
 .xins_dbwz{display:block;width:100%;float:left;margin-top:10px;text-align:center;color:#ffffff; font-size: 1.3rem;}
 
 .xins_jtnr{position:relative;width:100%;height:auto;float:left;margin-top:30px;margin-bottom:30px;border-top:1px solid #696a69;border-bottom:1px solid #696a69;background:#ffffff;}
-.xins_jtnr_jiantou{position:absolute;width:45px;height:25px;left:14%;top:-25px;background:url(../images/xins_jiantou.png) no-repeat;}
+.xins_jtnr_jiantou{position:absolute;width:45px;height:25px;left:14%;top:-25px;background:url(/images/personal/xins_jiantou.png) no-repeat;}
 .xins_jtnr ul{display:block;width:90%;margin:0 auto;}
 .xins_jtnr ul li{display:block;width:100%;float:left;padding:16px 0;border-bottom:1px solid #646464;font-size: 1.4rem;}
 .xins_jtnr ul li span{display:block;width:80%;float:left;line-height:50px;color:#646464;}
-.xins_jtnr ul li i{display:block;width:18px;height:32px;float:right;margin-top:9px;background:url(../images/xins_jiantou2.png) no-repeat;}
+.xins_jtnr ul li i{display:block;width:18px;height:32px;float:right;margin-top:9px;background:url(/images/personal/xins_jiantou2.png) no-repeat;}
 .xins_jtnr ul li a{display:block;}
 /*新手上路 over*/
 
@@ -64,7 +64,7 @@ display: block;
 /*查看明细 over*/
 
 /*4g流量明细 begin*/
-.xins_dhBg2{width:463PX;height:80PX;float:left;background:url(../images/dh_bg2.png) no-repeat;}
+.xins_dhBg2{width:463PX;height:80PX;float:left;background:url(/images/personal/dh_bg2.png) no-repeat;}
 .xins_dhBg2 span{display:block;height:80px;line-height:80px;float:left;color:#ffffff;}
 
 .sg_qkj{width:100%;float:left;margin-top:60px;}
@@ -75,7 +75,7 @@ display: block;
 /*4g流量明细 over*/
 
 /*个人信息 begin*/
-.xins_dhBg3{width:470PX;height:80PX;float:left;background:url(../images/dh_bg3.png) no-repeat;background-size:100% 100%;}
+.xins_dhBg3{width:470PX;height:80PX;float:left;background:url(/images/personal/dh_bg3.png) no-repeat;background-size:100% 100%;}
 .xins_dhBg3 span{display:block;height:80px;line-height:80px;float:left;color:#ffffff;}
 .xins_span02_2{padding-left:30px;}
 .xins_span03{padding-left:42px;}
@@ -94,7 +94,7 @@ display: block;
 .ger_lis{width:90%;margin:0 auto;}
 .ger_lis ul{display:block;width:100%;float:left;}
 .ger_lis ul li{display:block;width:100%;height:60px;float:left;margin-top:8px;line-height:60px;border-radius:10px;background:#ffffff;color:#646464; font-size: 1.4rem;}
-.ger_lis ul li i{display:block;width:12px;height:21px;float:right;margin:34px 10px 0 0;background:url(../images/ger_icon02.png) no-repeat;}
+.ger_lis ul li i{display:block;width:12px;height:21px;float:right;margin:34px 10px 0 0;background:url(/images/personal/ger_icon02.png) no-repeat;}
 .ger_lis ul li span{display:block;height:88px;}
 .ger_left{float:left;padding-left:10px;}
 .ger_right{float:right;padding-right:10px;}
@@ -152,7 +152,7 @@ display: block;
 .bph_dsk{padding:10px 0;float:left;background:#ee6e0a;}
 .bph_syl{width:45%;float:left;}
 .bph_syTop{text-align:center;color:#ffffff;font-size:26px;}
-.bph_yuan{width:150px;height:150px;margin:0 auto;margin-top:10px;background:url(../images/bph_tp01.png) no-repeat center center;background-size:100% 100%;}
+.bph_yuan{width:150px;height:150px;margin:0 auto;margin-top:10px;background:url(/images/personal/bph_tp01.png) no-repeat center center;background-size:100% 100%;}
 .bph_yuan p{display:block;height:150px;line-height:140px;text-align:center;font-size:50px;color:#fff57a;}
 
 .bph_yysm{width:50%;float:right;margin-right:10px;}
@@ -256,7 +256,7 @@ display: block;
 .mus_cai ul li a{display:block;}
 .mus_cai ul li a img{display:block;width:58px;height:56px;float:left;margin:7px 0 0 10px;}
 .mus_cai ul li a span{display:block;height:70px;line-height:70px;padding-left:10px;color:#646464;}
-.mus_cai ul li a i{display:block;width:12px;height:22px;float:right;margin:24px 10px 0 10px;background:url(../images/mus_cai_jiantou.png) no-repeat;}
+.mus_cai ul li a i{display:block;width:12px;height:22px;float:right;margin:24px 10px 0 10px;background:url(/images/personal/mus_cai_jiantou.png) no-repeat;}
 /*我的账户 over*/
 
 /*详情 begin*/
@@ -280,7 +280,7 @@ display: block;
 .box_toux ul li img{display:block;width:80px;height:80px;border-radius: 13px;cursor: pointer;}
 .box_border01{border:1px solid #dddddd;}
 .box_border02{border:2px solid #fb9708;}
-.box_toux_duigou{display:block;position:absolute;width:24px;height:17px;right:2px;bottom:2px;background:url(../images/touxiang_duigou.png) no-repeat;}
+.box_toux_duigou{display:block;position:absolute;width:24px;height:17px;right:2px;bottom:2px;background:url(/images/personal/touxiang_duigou.png) no-repeat;}
 /*选取头像 over*/
 
 

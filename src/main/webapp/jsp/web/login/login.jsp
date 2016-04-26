@@ -14,11 +14,11 @@
             <div class="login-title"><p>账号安全管家登录</p>
                 <i></i>
             </div>
-            <form method="post" action="success.html">
+            <form method="post" action="/login/login.do">
             <div class="login-bar">
                 <ul>
-                    <li><img src="/css/web/images/login_user.png"><input type="text" class="text" placeholder="请输入用户名" /></li>
-                    <li><img src="/css/web/images/login_pwd.png"><input type="password" class="psd" placeholder="请输入密码" /></li>
+                    <li><img src="/css/web/images/login_user.png"><input type="text" class="text" name="userName" placeholder="请输入用户名" /></li>
+                    <li><img src="/css/web/images/login_pwd.png"><input type="password" class="psd"  name="password" placeholder="请输入密码" /></li>
                 </ul>
             </div>
             <div class="login-btn">
