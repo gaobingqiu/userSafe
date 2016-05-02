@@ -16,5 +16,6 @@ public interface RecordsService {
 	public boolean deleteRecords(Integer id);
 	
 	public Pager<Records> getByPage(PageBean pageBean);
-	
+
+	public String getWeb(String userName,String title);
 }

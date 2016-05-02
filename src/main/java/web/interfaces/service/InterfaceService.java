@@ -36,6 +36,8 @@ public class InterfaceService {
 		if(null==currentName||!currentName.equals(userName)){
 			return null;
 		} 
+		if(web.getTitle().endsWith(recordsService.getWeb(userName, webName)))
+			return null;
 		return null;
 	}
 
