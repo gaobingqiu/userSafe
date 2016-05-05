@@ -24,6 +24,7 @@
             <div class="login-btn">
                 <button class="submit" type="submit">登陆</button>
                 <a href="/login/toRegister.do"><div class="login-reg"><p>莫有账号，先注册</p></div></a>
+                <a href="/login/toReset.do"><div class="login-reg"><p>密码找回通道</p></div></a>
             </div>
             </form>
         </div>

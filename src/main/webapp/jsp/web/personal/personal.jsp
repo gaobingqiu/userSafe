@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +61,7 @@
 						<img src="/images/personal/mus_cai_icon01.png"> <span
 						class="fl">密码管理</span> <i></i>
 				</a></li>
-				<li><a href="${ctx}/faWap/personalCenter!realName.action">
+				<li><a href="/personal/realName.do">
 						<img src="/images/personal/mus_cai_icon03.png"> <span
 						class="fl">实名认证</span> <i></i> <s:if test='%{realnameFlag=="1"}'>
 							<span class="fr">已认证</span>
@@ -70,8 +70,8 @@
 						</s:else>
 				</a></li>
 				<li><a href="${ctx}/faWap/personalCenter!bandingPhone.action">
-						<img src="/images/personal/mus_cai_icon04.png"> <span
-						class="fl">手机绑定</span> <i></i> <s:if test='%{bindSvcnumFlag=="1"}'>
+						<img src="/images/personal/mus_cai_icon04.png"> 
+						<span class="fl">手机绑定</span> <i></i> <s:if test='%{bindSvcnumFlag=="1"}'>
 							<span class="fr">${serviceNum }</span>
 						</s:if> <s:else>
 							<span class="fr">未绑定手机</span>
@@ -85,7 +85,7 @@
 							<span class="fr">未绑定邮箱</span>
 						</s:else>
 				</a></li>
-				<li><a href="${ctx}/faWap/personalCenter!loginpwd.action">
+				<li><a href="/login/toReset.do">
 						<img src="/images/personal//mus_cai_icon06.png"> <span
 						class="fl">登录密码管理</span> <i></i>
 				</a></li>
@@ -103,7 +103,7 @@
 	</div>
 
 	<div class="down_button">
-		<button onclick="window.location.href='#'">退出登录</button>
+		<button onclick="window.location.href='/login/userOut.do'">退出登录</button>
 	</div>
 </body>
 </html>

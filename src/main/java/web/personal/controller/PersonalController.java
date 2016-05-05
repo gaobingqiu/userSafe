@@ -18,7 +18,7 @@ public class PersonalController {
 	private UserService UserService;
 	
 	public String toPersonal(HttpServletRequest request) {
-		return "web/personal/index";
+		return "web/personal/personal";
 	}
 	
 	@RequestMapping("/update")
@@ -33,9 +33,9 @@ public class PersonalController {
 		return true;
 	}
 	
-	@RequestMapping("viewIDCard")
+	@RequestMapping("realName")
 	public String viewIDCard(HttpServletRequest request) {
-		return "web/personal/iDCard";
+		return "web/personal/realName";
 	}
 	
 	@RequestMapping("setIDCard")

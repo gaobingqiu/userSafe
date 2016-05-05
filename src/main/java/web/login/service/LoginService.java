@@ -38,6 +38,18 @@ public class LoginService {
 		return false;
 	}
 	
+	public boolean loginOut(HttpServletRequest request) {
+		try {
+			HttpSession session=request.getSession();
+			session.setAttribute("userId", null);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+		
+	}
+	
 	public String register(User user) {
 		try {
 			userService.saveOrUpdate(user);

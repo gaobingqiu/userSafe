@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.base.BaseService;
+import com.base.random.RandomSecret;
 import com.table.records.service.RecordsService;
 import com.table.web.entity.Web;
 import com.table.web.service.WebService;
@@ -21,7 +23,7 @@ import web.interfaces.vo.RegisterVo;
  * 2016年4月19日
  */
 @Service
-public class InterfaceService {
+public class InterfaceService extends BaseService{
 	@Autowired 
 	private RecordsService recordsService;
 	
@@ -43,6 +45,8 @@ public class InterfaceService {
 
 	public List<RegisterVo> quickRegister(HttpServletRequest request,String verifyCode, String webName, String userName) {
 		// TODO Auto-generated method stub
+		String password = RandomSecret.genRandomNum();
+		log.debug(password);
 		return null;
 	}
 	
