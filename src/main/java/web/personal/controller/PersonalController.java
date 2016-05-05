@@ -43,6 +43,23 @@ public class PersonalController {
 		return "web/personal/contactWay";
 	}
 	
+	@RequestMapping("setPhone")
+	@ResponseBody
+	public String setPhone(HttpServletRequest request,String phone) {
+		return "web/personal/contactWay";
+	}
+	
+	@RequestMapping("viewEmail")
+	public String viewEmail(HttpServletRequest request) {
+		return "web/personal/viewEmail";
+	}
+	
+	@RequestMapping("setEmail")
+	@ResponseBody
+	public String setEmail(HttpServletRequest request,String email) {
+		return "web/personal/contactWay";
+	}
+	
 	@RequestMapping("setIDCard")
 	@ResponseBody
 	public Result setIDCard(HttpServletRequest request,String iDCard) {
