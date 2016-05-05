@@ -38,6 +38,11 @@ public class PersonalController {
 		return "web/personal/realName";
 	}
 	
+	@RequestMapping("viewPhone")
+	public String viewPhone(HttpServletRequest request) {
+		return "web/personal/contactWay";
+	}
+	
 	@RequestMapping("setIDCard")
 	@ResponseBody
 	public Result setIDCard(HttpServletRequest request,String iDCard) {

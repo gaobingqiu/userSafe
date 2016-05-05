@@ -69,7 +69,7 @@
 							<span class="fr">未认证</span>
 						</s:else>
 				</a></li>
-				<li><a href="${ctx}/faWap/personalCenter!bandingPhone.action">
+				<li><a href="/personal/viewPhone.do">
 						<img src="/images/personal/mus_cai_icon04.png"> 
 						<span class="fl">手机绑定</span> <i></i> <s:if test='%{bindSvcnumFlag=="1"}'>
 							<span class="fr">${serviceNum }</span>
