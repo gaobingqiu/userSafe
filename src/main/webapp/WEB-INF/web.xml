@@ -6,7 +6,7 @@
 	<display-name>userSafe</display-name>
 
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>userSafe.jsp</welcome-file>
 	</welcome-file-list>
 
 	<!-- 加载所有的配置文件 -->
