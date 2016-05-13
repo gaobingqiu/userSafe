@@ -13,7 +13,7 @@ public class IndexController extends BaseController {
 
 	@RequestMapping("/goManager")
 	public String goList(HttpServletRequest request) {
-		return "index/manager";
+		return "manager";
 	}
 	
 	@RequestMapping("/toUpload")
