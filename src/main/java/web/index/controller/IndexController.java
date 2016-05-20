@@ -16,6 +16,11 @@ public class IndexController extends BaseController {
 		return "manager";
 	}
 	
+	@RequestMapping("/404")
+	public String go404(HttpServletRequest request) {
+		return "404";
+	}
+	
 	@RequestMapping("/toUpload")
     //@ResponseBody 返回json数据
     public String toUpload() {

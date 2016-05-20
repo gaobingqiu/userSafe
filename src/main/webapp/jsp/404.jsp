@@ -3,32 +3,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
 <%@ include file="/header.jsp"%>
-<link rel="stylesheet" href="/css/404.css">
-<title>用户列表</title>
-</head>
-<body>
-<body>
-	<h1></h1>
-	<p class="link">
-		<a href="127.0.0.1:8080">&#9666;返回首页</a> 
-		<a href="http://www.mubanzhijia.com">&#9666;返回上一页</a>
-	</p>
-	<dl class="texts">
-		<dt>你的管家正在联系火星总部查找您所需要的页面.请返回等待信息..</dt>
-		<dd>
-			<ul>
-				<li>不要返回吗?</li>
-				<li>确定不要返回吗?</li>
-				<li>真的真的确定不要返回吗?</li>
-				<li>好吧.还是随便你要不要真的确定返回吧</li>
-			</ul>
-		</dd>
-	</dl>
+<script src="/js/jquery-1.11.0.min.js"></script>
 
-	</span>
-	</span>
-	</span>
-	</p>
+<script language="javascript">
+	$(function(){
+    $('.error').css({'position':'absolute','left':($(window).width()-490)/2});
+	$(window).resize(function(){  
+    $('.error').css({'position':'absolute','left':($(window).width()-490)/2});
+    })  
+});  
+</script> 
+
+
+</head>
+
+
+<body style="background:#edf6fa;">
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">404错误提示</a></li>
+    </ul>
+    </div>
+    
+    <div class="error">
+    
+    <h2>非常遗憾，您访问的页面不存在！</h2>
+    <p>看到这个提示，就自认倒霉吧!</p>
+    <div class="reindex"><a href="main.html" target="_parent">返回首页</a></div>
+    
+    </div>
+
+
 </body>
+
 </html>

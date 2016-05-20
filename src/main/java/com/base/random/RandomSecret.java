@@ -36,6 +36,12 @@ public class RandomSecret {
 		return pwd.toString();
 	}
 
+	/**
+	 * 生成5-10位的随机密码
+	 * @return
+	 * @author gbq
+	 * 2016年5月19日
+	 */
 	public static String getAccess() {
 		// 26*2个字母+10个数字
 		final int leastLength = 5;
@@ -62,6 +68,12 @@ public class RandomSecret {
 		return pwd.toString();
 	}
 
+	/**
+	 * 生出6位数字的随机密码
+	 * @return
+	 * @author gbq
+	 * 2016年5月19日
+	 */
 	public static String getNum() {
 		// 26*2个字母+10个数字
 		final int leastLength = 6;

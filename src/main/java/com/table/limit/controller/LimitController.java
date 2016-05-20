@@ -29,6 +29,7 @@ public class LimitController extends BaseController{
 
     @RequestMapping("/goList")
     public String goList(HttpServletRequest request) {
+    	log.debug("跳转到限制管理页面");
         return "table/limit/list";
     }
 

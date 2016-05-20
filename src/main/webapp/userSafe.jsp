@@ -31,18 +31,6 @@
 	<div id="wrap" class="clr">
 		<div id="imageswzi">
 			<script src="/js/userSafe/swipe2.js" type="text/javascript"></script>
-			<!-- <div id="displayswipe">
-				<div id="banner_box" class="box_swipe">
-					<ul id="ul_01">
-						<li id="li_01">
-							<img src="/images/1.jpg" id="bannerimg31904">
-						</li>
-					</ul>
-					<ol>
-						<li class=""></li>&nbsp;
-					</ol>
-				</div>
-			</div> -->
 			<div id="displayone">
 				<img src="/images/head01.jpg" alt=" " id="onebannerimg">
 			</div>
