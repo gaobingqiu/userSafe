@@ -7,16 +7,7 @@
 <title>账号安全中心</title>
 <!-- 移动设备支持 -->
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-<meta
-	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-	name="viewport">
-<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
-<meta content="no-cache" http-equiv="pragma">
-<meta content="0" http-equiv="expires">
-<meta content="telephone=no, address=no" name="format-detection">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style"
-	content="black-translucent">
+<%@ include file="/header.jsp"%>
 <link href="/css/userSafe/reset.css" rel="stylesheet" type="text/css">
 <link href="/css/userSafe/mod40.css" rel="stylesheet" type="text/css">
 <link href="/css/userSafe/userSafe.css" rel="stylesheet" type="text/css">

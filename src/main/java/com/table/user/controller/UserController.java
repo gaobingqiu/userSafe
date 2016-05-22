@@ -61,7 +61,7 @@ public class UserController extends BaseController{
 
     @RequestMapping("/saveOrUpdate")
     @ResponseBody
-    public boolean SaveOrUpdate(User user, HttpServletRequest request) {
+    public boolean saveOrUpdate(User user, HttpServletRequest request) {
         userService.saveOrUpdate(user);
         return true;
     }
