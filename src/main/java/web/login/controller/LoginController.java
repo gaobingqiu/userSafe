@@ -1,13 +1,14 @@
 package web.login.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.base.BaseController;
-import com.table.user.entity.User;
 
 import web.index.service.IndexService;
 import web.login.service.LoginService;
@@ -21,9 +22,12 @@ public class LoginController extends BaseController {
 	private IndexService indexService;
 
 	@RequestMapping("/login")
-	public String login(HttpServletRequest request, String userName, String password) {
-		if (loginService.userLogin(request, userName, password))
+	public String login(HttpServletRequest request, String userName, String password, Model model) {
+		HttpSession session = request.getSession();
+		if (loginService.userLogin(request, userName, password)) {
+			model.addAttribute("userId", session.getAttribute("userId"));
 			return "web/personal/personal";
+		}
 		return "404";
 	}
 
@@ -48,19 +52,17 @@ public class LoginController extends BaseController {
 	}
 
 	@RequestMapping("/register")
-	public String register(HttpServletRequest request,String userName, String password,Integer code) {
-		if(!indexService.checkCode(code)){
+	public String register(HttpServletRequest request, String userName, String password, Integer code)
+			throws Exception {
+		if (!indexService.checkCode(code)) {
 			return "404";
 		}
-		User user = new User();
-		user.setPassword(password);
-		user.setUserName(userName);
-		if (loginService.register(user)) {
+		if (loginService.register(userName, password)) {
 			return "web/login/showResult";
 		}
 		return "404";
 	}
-	
+
 	@RequestMapping("/toReset")
 	public String toReset(HttpServletRequest request) {
 		return "web/login/reset";

@@ -40,7 +40,7 @@
 			</div>
 
 			<div class="mus_tou"
-				onclick="window.location.href='${ctx}/faWap/personalCenter!personInfo.action'"
+				onclick="window.location.href='/personal/uploadImg.do'"
 				style="margin-left: 100px; width: 90px; float: left;">
 				<img class="ger_tou" src="${session.userPhotoImg}"
 					style="border: 0px; background: none; width: 116px; height: 120px; margin-bottom: 17px;">
@@ -77,7 +77,7 @@
 							<span class="fr">未绑定手机</span>
 						</s:else>
 				</a></li>
-				<li><a href="${ctx}/faWap/personalCenter!bandingEmail.action">
+				<li><a href="/personal/viewEmail.do">
 						<img src="/images/personal/mus_cai_icon05.png"> <span
 						class="fl">邮箱绑定</span> <i></i> <s:if test='%{bindEmailFlag=="1"}'>
 							<span class="fr">${email}</span>
@@ -89,7 +89,7 @@
 						<img src="/images/personal//mus_cai_icon06.png"> <span
 						class="fl">登录密码管理</span> <i></i>
 				</a></li>
-				<li><a href="${ctx}/faWap/personalCenter!feedback.action">
+				<li><a href="/index/advise.do">
 						<img src="/images/personal/mus_cai_icon08.png"> <span
 						class="fl">意见反馈</span> <i></i>
 				</a></li>

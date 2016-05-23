@@ -19,7 +19,7 @@
 
 	<!--登录头部 begin-->
 	<div class="ui-header">
-		<a href="http:127.0.0.1:8080/" class="return fn-left">
+		<a href="http://127.0.0.1:8080/" class="return fn-left">
 			<i class="icon icon-ret"></i> </a> <span class="title">
 			登&nbsp;&nbsp;录 </span>
 	</div>
@@ -27,19 +27,19 @@
 
 
 	<div class="cont-wrap">
-		<form action="manager/login.do" class="ui-form-login" id="faLogin"
+		<form action="/managers/login.do" class="ui-form-login" id="faLogin"
 			method="post">
 			<div class="form-item" style="margin-bottom: 50px;">
 				<input id="loginUserName" name="loginName" type="text"
 					placeholder="手机号码/账户/邮箱" class="input70 inputbg input-per" />
 			</div>
 			<div class="form-item">
-				<input id="pwd" value="" placeholder="密码" type="password"
+				<input id="pwd" value="" name="password" placeholder="密码" type="password"
 					class="input70 inputbg input-key1" />
 			</div>
 
 			<div class="btn-wrap" style="margin-top:30px;">
-				<input type="button" id="btnLogin" class="btn btn-orange"
+				<input type="submit" id="btnLogin" class="btn btn-orange"
 					value="马上登录">
 			</div>
 			<p class="msgt" style="text-align: right;">

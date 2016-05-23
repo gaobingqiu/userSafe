@@ -52,7 +52,12 @@ public class PersonalController {
 	
 	@RequestMapping("viewEmail")
 	public String viewEmail(HttpServletRequest request) {
-		return "web/personal/viewEmail";
+		return "web/personal/contactWay";
+	}
+	
+	@RequestMapping("uploadImg")
+	public String uploadImg(HttpServletRequest request) {
+		return "test/upload/image";
 	}
 	
 	@RequestMapping("setEmail")

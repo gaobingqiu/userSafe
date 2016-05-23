@@ -5,7 +5,7 @@
 <title>账号安全中心后台界面</title>
 </head>
 <frameset rows="88,*" cols="*" frameborder="no" border="0" framespacing="0">
-  <frame src="/jsp/top.html" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+  <frame src="/managers/top.do" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
   <frameset cols="187,*" frameborder="no" border="0" framespacing="0">
     <frame src="/jsp/left.html" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
     <frame src="/jsp/index2.html" name="rightFrame" id="rightFrame" title="rightFrame" />

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.base.encrypt.aes.AES;
 import com.table.user.entity.User;
 import com.table.user.service.UserService;
 
@@ -30,12 +31,19 @@ public class LoginService {
 	 */
 	public boolean userLogin(HttpServletRequest request,String userName,String password){
 		User user = userService.getUserByName(userName);
-		if (user.getPassword().equals(password)) {
-			HttpSession session=request.getSession();
-			session.setAttribute("userId", user.getId());
-			return true;
+		try {
+			String userPassword = AES.Decrypt(user.getPassword(), "1234567890123456");
+			if (userPassword.equals(password)) {
+				HttpSession session=request.getSession();
+				session.setAttribute("userId", user.getId());
+				return true;
+			}
+			return false;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	public boolean loginOut(HttpServletRequest request) {
@@ -50,12 +58,18 @@ public class LoginService {
 		
 	}
 	
-	public boolean register(User user) {
+	public boolean register(String userName, String password) {
+		User user = new User();
+		String safePassWord;
 		try {
+			safePassWord = AES.Encrypt(password, "1234567890123456");
+			user.setPassword(safePassWord);
+			user.setUserName(userName);
 			userService.saveOrUpdate(user);
 			return true;
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 			return false;
 		}
 	}

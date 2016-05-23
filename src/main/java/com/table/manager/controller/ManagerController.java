@@ -5,9 +5,11 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,81 +21,90 @@ import com.table.manager.service.ManagerService;
 
 @Controller
 @RequestMapping("/managers")
-public class ManagerController extends BaseController{
+public class ManagerController extends BaseController {
 
-    /*
-     * 在配置文件中， userManager会绑定bean中id为userManager的类 有注解就不需要set方法
-     */
-    @Autowired
-    private ManagerService managerService;
+	/*
+	 * 在配置文件中， userManager会绑定bean中id为userManager的类 有注解就不需要set方法
+	 */
+	@Autowired
+	private ManagerService managerService;
 
-    @RequestMapping("/login")
-	public String login(HttpServletRequest request, String userName, String password) {
-		if (managerService.login(request, userName, password))
+	@RequestMapping("/top")
+	public String top(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		model.addAttribute("managerName", session.getAttribute("managerName"));
+		return "top";
+	}
+
+	@RequestMapping("/login")
+	public String login(HttpServletRequest request, String loginName, String password, Model model) {
+		if (managerService.login(request, loginName, password)) {
+			HttpSession session = request.getSession();
+			model.addAttribute("managerName", session.getAttribute("managerName"));
 			return "manager";
+		}
 		return "404";
 	}
-    
-    @RequestMapping("/goList")
-    public String goList(HttpServletRequest request) {
-        return "table/manager/list";
-    }
 
-    @RequestMapping("/getAllManager")
-    @ResponseBody
-    public Pager<Manager> getAllManager(HttpServletRequest request,Integer page,Integer rows) {
-        PageBean pageBean = new PageBean();
-        pageBean.setPageNo(page);
-        pageBean.setPageSize(rows);
-        Pager<Manager> pager = managerService.getByPage(pageBean);
-        return pager;
-    }
+	@RequestMapping("/goList")
+	public String goList(HttpServletRequest request) {
+		return "table/manager/list";
+	}
 
-    /**
-     * 
-     * @param id
-     * @param request
-     * @return
-     */
-    @RequestMapping("/getManager")
-    public String getManager(Integer id, HttpServletRequest request) {
-        request.setAttribute("manager", managerService.getManager(id));
-        return "/editManager";
-    }
+	@RequestMapping("/getAllManager")
+	@ResponseBody
+	public Pager<Manager> getAllManager(HttpServletRequest request, Integer page, Integer rows) {
+		PageBean pageBean = new PageBean();
+		pageBean.setPageNo(page);
+		pageBean.setPageSize(rows);
+		Pager<Manager> pager = managerService.getByPage(pageBean);
+		return pager;
+	}
 
-    @RequestMapping("/toAddManager")
-    public String toAddManager() {
-        return "/addManager";
-    }
+	/**
+	 * 
+	 * @param id
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/getManager")
+	public String getManager(Integer id, HttpServletRequest request) {
+		request.setAttribute("manager", managerService.getManager(id));
+		return "/editManager";
+	}
 
-    @RequestMapping("/saveOrUpdate")
-    @ResponseBody
-    public boolean SaveOrUpdate(Manager manager, HttpServletRequest request) {
-        managerService.saveOrUpdate(manager);
-        return true;
-    }
+	@RequestMapping("/toAddManager")
+	public String toAddManager() {
+		return "/addManager";
+	}
 
-    /**
-     *
-     * @param id
-     * @param response
-     */
-    @RequestMapping("/delManager")
-    public void delManager(Integer id, HttpServletResponse response) {
+	@RequestMapping("/saveOrUpdate")
+	@ResponseBody
+	public boolean SaveOrUpdate(Manager manager, HttpServletRequest request) {
+		managerService.saveOrUpdate(manager);
+		return true;
+	}
 
-        String result = "{\"result\":\"error\"}";
+	/**
+	 *
+	 * @param id
+	 * @param response
+	 */
+	@RequestMapping("/delManager")
+	public void delManager(Integer id, HttpServletResponse response) {
 
-        if (managerService.deleteManager(id)) {
-            result = "{\"result\":\"success\"}";
-        }
-        response.setContentType("application/json");
-        try {
-            PrintWriter out = response.getWriter();
-            out.write(result);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+		String result = "{\"result\":\"error\"}";
+
+		if (managerService.deleteManager(id)) {
+			result = "{\"result\":\"success\"}";
+		}
+		response.setContentType("application/json");
+		try {
+			PrintWriter out = response.getWriter();
+			out.write(result);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
-

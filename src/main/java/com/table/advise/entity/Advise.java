@@ -34,8 +34,11 @@ public class  Advise implements Serializable {
     private String userId;
     
     @Column(length = 50)
-    private String title;
+    private String email;
 
+    @Column(length = 50)
+    private String tel;
+    
     @Column(length = 50)
     private String describle;
 
@@ -63,14 +66,6 @@ public class  Advise implements Serializable {
 		this.userId = userId;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public String getDescrible() {
 		return describle;
 	}
@@ -78,4 +73,21 @@ public class  Advise implements Serializable {
 	public void setDescrible(String describle) {
 		this.describle = describle;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	
 }
