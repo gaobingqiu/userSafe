@@ -27,6 +27,13 @@ public class ManagerController extends BaseController{
     @Autowired
     private ManagerService managerService;
 
+    @RequestMapping("/login")
+	public String login(HttpServletRequest request, String userName, String password) {
+		if (managerService.login(request, userName, password))
+			return "manager";
+		return "404";
+	}
+    
     @RequestMapping("/goList")
     public String goList(HttpServletRequest request) {
         return "table/manager/list";

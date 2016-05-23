@@ -2,6 +2,8 @@ package com.table.manager.service.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Service;
 
 import com.base.BaseService;
@@ -12,6 +14,9 @@ import com.table.manager.service.ManagerService;
 
 @Service("managerService")
 public class ManagerServiceImpl extends BaseService implements ManagerService {
+	public boolean login(HttpServletRequest request, String userName, String password){
+		return true;
+	}
 	
 	@Override
 	public Manager getManager(Integer id) {

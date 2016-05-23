@@ -29,7 +29,7 @@
             </form>
         </div>
 		<div style="text-align:center;">
-<div class="bottom">Copyright &copy; 2014 - 2015 <a href="#" style="color: #555555">系统登陆</a></div>
+<div class="bottom">Copyright &copy; 2015 - 2016 <a href="#" style="color: #555555">系统登陆</a></div>
 </div>
 </body>
 </html>

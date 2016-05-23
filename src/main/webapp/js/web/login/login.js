@@ -17,14 +17,14 @@ window.onload=function(){
         
     }
     
-    oUser.onblur=function(){
-        var tel = /1[3|4|5|7|8][0-9]\d{8}$/;
-        if(!tel.test(this.value)){
-            aI.innerHTML='手机号不正确';
-        }else if(this.value==""){
-            aI.innerHTML='手机号不可为空';
-        }
-    }
+//    oUser.onblur=function(){
+//        var tel = /1[3|4|5|7|8][0-9]\d{8}$/;
+//        if(!tel.test(this.value)){
+//            aI.innerHTML='手机号不正确';
+//        }else if(this.value==""){
+//            aI.innerHTML='手机号不可为空';
+//        }
+//    }
     
     //密码检测
     

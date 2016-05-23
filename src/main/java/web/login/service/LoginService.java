@@ -50,13 +50,13 @@ public class LoginService {
 		
 	}
 	
-	public String register(User user) {
+	public boolean register(User user) {
 		try {
 			userService.saveOrUpdate(user);
-			return "success";
+			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
-			return "error";
+			return false;
 		}
 	}
 }

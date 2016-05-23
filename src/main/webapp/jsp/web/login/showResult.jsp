@@ -17,9 +17,9 @@
 			<div class="s_title">
 				您的用户名：<span class="s_red">13137844382</span>
 			</div>
-			<div class="s_title">移动端的产品正在搭建中，请您移步PC端 请用PC电脑打开如下网站：</div>
+			<div class="s_title">进行个人中心，开始你账号安全之旅吧：</div>
 			<span class="s_redlink">
-			<a href="http://www.tuilang.cc" target="_blank">http://www.tuilang.cc</a>
+			<a href="/personal/toPersonal.do" target="_blank">个人中心</a>
 			</span>
 		</div>
 	</div>

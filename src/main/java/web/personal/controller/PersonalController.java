@@ -17,6 +17,7 @@ public class PersonalController {
 	@Autowired
 	private UserService UserService;
 	
+	@RequestMapping("/toPersonal")
 	public String toPersonal(HttpServletRequest request) {
 		return "web/personal/personal";
 	}

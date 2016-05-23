@@ -13,7 +13,7 @@ public class IndexController extends BaseController {
 
 	@RequestMapping("/goManager")
 	public String goList(HttpServletRequest request) {
-		return "manager";
+		return "manage/login";
 	}
 	
 	@RequestMapping("/404")

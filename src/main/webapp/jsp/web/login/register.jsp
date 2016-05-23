@@ -12,13 +12,17 @@
 <body>
 <body>
 	 <div id="layout">
-            <span>注册，的账号安全管家</span>
-            <form  method="post">
+            <span>注册账号安全管家</span>
+            <form  method="post" action="/login/register.do">
             <ul>
                 <p id="err_msg"></p>
-                <li><i class="un"><img src="/css/web/images/user_name.png"></i><input class="username" type="text" placeholder="请输入用户名" /></li>
-                <li><i class="yz"><img src="/css/web/images/msg.png"></i><input class="yzm" type="text" placeholder="请输入手机验证码" /><input type="button" id="send" value="获取验证码" /></li>
-                <li><i class="pw"><img src="/css/web/images/pwd.png"></i><input class="pwd" type="password" placeholder="请输入密码" /></li>
+                <li><i class="un"><img src="/css/web/images/user_name.png"></i>
+                <input class="username" name="userName" type="text" placeholder="请输入用户名" /></li>
+                <li><i class="yz"><img src="/css/web/images/msg.png"></i>
+                <input class="yzm" type="text" placeholder="请输入手机验证码" />
+                <input type="button" id="send" value="获取验证码" /></li>
+                <li><i class="pw"><img src="/css/web/images/pwd.png"></i>
+                <input class="pwd" type="password" name="password" placeholder="请输入密码" /></li>
                 <li><i class="pw2"><img src="/css/web/images/pwd.png"></i><input class="pwd2" type="password" placeholder="请输入确认密码" /></li>
                 <div class="queren"><input class="fx" type="checkbox" checked="checked" /><p>我已阅读并同意《用户协议》</p></div>
             </ul>
