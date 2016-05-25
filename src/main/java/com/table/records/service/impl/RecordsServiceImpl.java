@@ -2,6 +2,9 @@ package com.table.records.service.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,12 +58,14 @@ public class RecordsServiceImpl extends BaseService implements RecordsService {
 	}
 
 	@Override
-	public Pager<Records> getByPage(PageBean pageBean) {
+	public Pager<Records> getByPage(HttpServletRequest request,PageBean pageBean) {
 		// TODO Auto-generated method stub
-		String hql="from Records";
+		String hql="from Records where userId = ?";
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
 		int page = pageBean.getPageNo();
 		int rows = pageBean.getPageSize();
-		return dao.findPager(hql, page, rows);
+		return dao.findPager(hql, page, rows,userId);
 	}
 	
 	public String getWeb(String userName,String title){

@@ -38,7 +38,7 @@ public class RecordsController extends BaseController{
         PageBean pageBean = new PageBean();
         pageBean.setPageNo(page);
         pageBean.setPageSize(rows);
-        Pager<Records> pager = recordsService.getByPage(pageBean);
+        Pager<Records> pager = recordsService.getByPage(request,pageBean);
         return pager;
     }
 

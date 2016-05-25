@@ -2,6 +2,8 @@ package com.table.records.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.base.dao.PageBean;
 import com.base.dao.Pager;
 import com.table.records.entity.Records;
@@ -15,7 +17,7 @@ public interface RecordsService {
 	
 	public boolean deleteRecords(Integer id);
 	
-	public Pager<Records> getByPage(PageBean pageBean);
+	public Pager<Records> getByPage(HttpServletRequest request, PageBean pageBean);
 
 	public String getWeb(String userName,String title);
 }
