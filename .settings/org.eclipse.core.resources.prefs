@@ -5,6 +5,7 @@ encoding//src/main/resources/config.properties=UTF-8
 encoding//src/main/webapp/css/select.css=UTF-8
 encoding//src/main/webapp/css/userSafe/mod40.css=UTF-8
 encoding//src/main/webapp/css/web/personal/personal_center.css=UTF-8
+encoding//src/main/webapp/jsp/web/personal/codeManage.jsp=UTF-8
 encoding//src/main/webapp/jsp/web/personal/contactWay.jsp=UTF-8
 encoding//src/main/webapp/public/verifyCode.jsp=UTF-8
 encoding//src/main/webapp/userSafe.jsp=UTF-8

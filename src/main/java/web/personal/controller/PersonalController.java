@@ -22,6 +22,11 @@ public class PersonalController {
 		return "web/personal/personal";
 	}
 	
+	@RequestMapping("/codeManage")
+	public String codeManage(HttpServletRequest request) {
+		return "web/personal/codeManage";
+	}
+	
 	@RequestMapping("/update")
 	public boolean update(HttpServletRequest request,User user) {
 		UserService.saveOrUpdate(user);

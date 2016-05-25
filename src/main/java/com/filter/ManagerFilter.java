@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class UserFilter implements Filter{
+public class ManagerFilter implements Filter{
 
     @Override
     public void destroy() {
@@ -27,8 +27,8 @@ public class UserFilter implements Filter{
         HttpServletRequest request=(HttpServletRequest)req;
         HttpServletResponse response=(HttpServletResponse)res;
         HttpSession session=request.getSession();
-        if(null==session.getAttribute("userId")){
-            response.sendRedirect("http://127.0.0.1:8080/login/toLogin.do"); 
+        if(null==session.getAttribute("managerName")){
+            response.sendRedirect("http://127.0.0.1:8080/managers/login.do"); 
         }
         chain.doFilter(req, res);
     }

@@ -57,7 +57,7 @@
 		<div class="mus_cai">
 			<ul>
 				<li><a
-					href="${ctx}/faWap/personalCenter!flowDetails.action?flowType=">
+					href="/personal/codeManage.do">
 						<img src="/images/personal/mus_cai_icon01.png"> <span
 						class="fl">密码管理</span> <i></i>
 				</a></li>
