@@ -14,7 +14,7 @@ import com.table.user.service.UserService;
 public class UserserviceImpl extends BaseService implements UserService {
 	
 	@Override
-	public User getUser(Integer id) {
+	public User getUser(String id) {
 		// TODO Auto-generated method stub
 		return dao.getObject(User.class, id);
 	}
@@ -38,7 +38,7 @@ public class UserserviceImpl extends BaseService implements UserService {
 	}
 
 	@Override
-	public boolean deleteUser(Integer id) {
+	public boolean deleteUser(String id) {
 		// TODO Auto-generated method stub
 		User user = this.getUser(id);
 		dao.delete(user);
@@ -62,7 +62,7 @@ public class UserserviceImpl extends BaseService implements UserService {
 	}
 
 	@Override
-	public void disable(Integer id) {
+	public void disable(String id) {
 		// TODO Auto-generated method stub
 		String hql = "update User set enable=0 where id=?";
 		dao.executeSql(hql, id);

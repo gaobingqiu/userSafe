@@ -10,7 +10,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,12 +21,16 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.base.BaseController;
+import com.table.user.entity.User;
+import com.table.user.service.UserService;
 
 import sun.misc.BASE64Decoder;
 
 @Controller
 @RequestMapping("/file")
 public class UploadController extends BaseController {
+	@Autowired
+	private UserService userService;
 	@RequestMapping("/toImage")
 	public String toImage() {
 		return "test/upload/image";
@@ -104,9 +110,14 @@ public class UploadController extends BaseController {
 	    		}
 	    		}
 	    		// 生成jpeg图片
-	    		String imgFilePath = "F:/design/images/";// 新生成的图片
+	    		String imgFilePath = "E:/workplace/userSafe/src/main/webapp/images/upload/images";// 新生成的图片
+	    		HttpSession session = request.getSession();
+	    		String userId = (String) session.getAttribute("userId");
+	    		User user = userService.getUser(userId);
 	    		Long time= System.currentTimeMillis();//获取当前时间戳
-	    		imgFilePath = imgFilePath+time+".png";
+	    		imgFilePath = imgFilePath+userId+time+".png";
+	    		user.setImage(imgFilePath);
+	    		userService.saveOrUpdate(user);
 	    		OutputStream out = new FileOutputStream(imgFilePath);
 	    		out.write(b);
 	    		out.flush();

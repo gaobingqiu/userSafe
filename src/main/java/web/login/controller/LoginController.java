@@ -1,7 +1,6 @@
 package web.login.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.base.BaseController;
+import com.table.user.entity.User;
 
 import web.index.service.IndexService;
 import web.login.service.LoginService;
@@ -23,9 +23,12 @@ public class LoginController extends BaseController {
 
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, String userName, String password, Model model) {
-		HttpSession session = request.getSession();
-		if (loginService.userLogin(request, userName, password)) {
-			model.addAttribute("userId", session.getAttribute("userId"));
+		User user = loginService.userLogin(request, userName, password);
+		if (null!=user) {
+			model.addAttribute("image", user.getImage());
+			model.addAttribute("tel", user.getTel());
+			model.addAttribute("email", user.getEmail());
+			model.addAttribute("idNum", user.getIdNum());
 			return "web/personal/personal";
 		}
 		return "404";

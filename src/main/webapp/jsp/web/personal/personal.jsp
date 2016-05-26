@@ -42,7 +42,7 @@
 			<div class="mus_tou"
 				onclick="window.location.href='/personal/uploadImg.do'"
 				style="margin-left: 100px; width: 90px; float: left;">
-				<img class="ger_tou" src="${session.userPhotoImg}"
+				<img class="ger_tou" src="/images/upload/images/151464239694282.png"
 					style="border: 0px; background: none; width: 116px; height: 120px; margin-bottom: 17px;">
 			</div>
 			<br /><br /><br /><br /><br /><br /><br /><br />
@@ -63,27 +63,33 @@
 				</a></li>
 				<li><a href="/personal/realName.do">
 						<img src="/images/personal/mus_cai_icon03.png"> <span
-						class="fl">实名认证</span> <i></i> <s:if test='%{realnameFlag=="1"}'>
+						class="fl">实名认证</span> <i></i> 
+						<c:if test='${!empty idNum}'>
 							<span class="fr">已认证</span>
-						</s:if> <s:else>
+						</c:if> 
+						<c:if test='${empty idNum}'>
 							<span class="fr">未认证</span>
-						</s:else>
+						</c:if> 
 				</a></li>
 				<li><a href="/personal/viewPhone.do">
 						<img src="/images/personal/mus_cai_icon04.png"> 
-						<span class="fl">手机绑定</span> <i></i> <s:if test='%{bindSvcnumFlag=="1"}'>
-							<span class="fr">${serviceNum }</span>
-						</s:if> <s:else>
+						<span class="fl">手机绑定</span> <i></i>
+						 <c:if test='${!empty tel}'>
+							<span class="fr">${tel }</span>
+						</c:if> 
+						 <c:if test='${empty tel}'>
 							<span class="fr">未绑定手机</span>
-						</s:else>
+						</c:if>
 				</a></li>
 				<li><a href="/personal/viewEmail.do">
 						<img src="/images/personal/mus_cai_icon05.png"> <span
-						class="fl">邮箱绑定</span> <i></i> <s:if test='%{bindEmailFlag=="1"}'>
+						class="fl">邮箱绑定</span> <i></i> 
+						<c:if test='${!empty email}'>
 							<span class="fr">${email}</span>
-						</s:if> <s:else>
+						</c:if> 
+						<c:if test='${empty email}'>
 							<span class="fr">未绑定邮箱</span>
-						</s:else>
+						</c:if>
 				</a></li>
 				<li><a href="/login/toReset.do">
 						<img src="/images/personal//mus_cai_icon06.png"> <span

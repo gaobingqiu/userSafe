@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.base.BaseController;
 import com.base.Result;
 import com.base.dao.PageBean;
 import com.base.dao.Pager;
@@ -18,7 +19,7 @@ import com.table.user.service.UserService;
 
 @Controller
 @RequestMapping("/personal")
-public class PersonalController {
+public class PersonalController extends BaseController{
 	@Autowired
 	private UserService UserService;
 	@Autowired
@@ -32,6 +33,12 @@ public class PersonalController {
 	@RequestMapping("/codeManage")
 	public String codeManage(HttpServletRequest request, Integer page, Integer rows, Model model) {
 		PageBean pageBean = new PageBean();
+		if(null== page){
+			page = 1;
+		}
+		if(null== rows){
+			rows = 10;
+		}
 		pageBean.setPageNo(page);
 		pageBean.setPageSize(rows);
 		Pager<Records> pager = recordsService.getByPage(request, pageBean);
@@ -46,7 +53,7 @@ public class PersonalController {
 	}
 
 	@RequestMapping("/delete")
-	public boolean delete(HttpServletRequest request, Integer id) {
+	public boolean delete(HttpServletRequest request, String id) {
 		UserService.disable(id);
 		return true;
 	}
@@ -74,7 +81,7 @@ public class PersonalController {
 
 	@RequestMapping("uploadImg")
 	public String uploadImg(HttpServletRequest request) {
-		return "test/upload/image";
+		return "web/personal/image";
 	}
 
 	@RequestMapping("setEmail")

@@ -7,18 +7,18 @@ import com.base.dao.Pager;
 import com.table.user.entity.User;
 
 public interface UserService {
-	public User getUser(Integer id) ;
+	public User getUser(String id) ;
 	
 	public List<User> getAllUser();
 	
 	public void saveOrUpdate(User user);
 	
-	public boolean deleteUser(Integer id);
+	public boolean deleteUser(String id);
 	
 	public Pager<User> getByPage(PageBean pageBean);
 	
 	public User getUserByName(String name);
 
-	public void disable(Integer id);
+	public void disable(String id);
 		
 }

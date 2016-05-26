@@ -25,7 +25,7 @@ public class  User implements Serializable {
     //主键自动增长型
     @GeneratedValue 
     @Column(name="Id",length = 11)
-    private Integer id;
+    private String id;
 
     @Column(name="user_name",length = 25)
     private String userName;
@@ -132,11 +132,11 @@ public class  User implements Serializable {
 		this.age = age;
 	}
 
-	public Integer getId() {
+	public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

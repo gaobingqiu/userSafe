@@ -20,7 +20,7 @@
     <!--实名认证1 begin-->
     <div class="name1_top">
     	<div class="name1_jz">
-        	<a href="${ctx}/faWap/personalCenter!account.action"><img src="/images/personal/name1_icon01.png"></a>
+        	<a href="/login/login.do"><img src="/images/personal/name1_icon01.png"></a>
             <p>实名认证</p>
         </div>
     </div>

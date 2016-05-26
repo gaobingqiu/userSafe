@@ -49,7 +49,7 @@ public class UserController extends BaseController{
      * @return
      */
     @RequestMapping("/getUser")
-    public String getUser(Integer id, HttpServletRequest request) {
+    public String getUser(String id, HttpServletRequest request) {
         request.setAttribute("user", userService.getUser(id));
         return "/editUser";
     }
@@ -72,7 +72,7 @@ public class UserController extends BaseController{
      * @param response
      */
     @RequestMapping("/delUser")
-    public void delUser(Integer id, HttpServletResponse response) {
+    public void delUser(String id, HttpServletResponse response) {
 
         String result = "{\"result\":\"error\"}";
 

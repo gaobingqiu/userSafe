@@ -60,7 +60,7 @@ public class RecordsServiceImpl extends BaseService implements RecordsService {
 	@Override
 	public Pager<Records> getByPage(HttpServletRequest request,PageBean pageBean) {
 		// TODO Auto-generated method stub
-		String hql="from Records where userId = ?";
+		String hql="from Records where userId =?";
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
 		int page = pageBean.getPageNo();

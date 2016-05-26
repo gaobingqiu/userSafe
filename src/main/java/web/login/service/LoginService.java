@@ -29,20 +29,20 @@ public class LoginService {
 	 * @author gbq
 	 * 2016年4月19日
 	 */
-	public boolean userLogin(HttpServletRequest request,String userName,String password){
+	public User userLogin(HttpServletRequest request,String userName,String password){
 		User user = userService.getUserByName(userName);
 		try {
 			String userPassword = AES.Decrypt(user.getPassword(), "1234567890123456");
 			if (userPassword.equals(password)) {
 				HttpSession session=request.getSession();
 				session.setAttribute("userId", user.getId());
-				return true;
+				return user;
 			}
-			return false;
+			return null;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return false;
+			return null;
 		}
 	}
 	
