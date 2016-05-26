@@ -25,7 +25,7 @@ public class IndexController extends BaseController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping("/addAdvise")
+	@RequestMapping("/getCode")
 	@ResponseBody
 	public String getCode(HttpServletRequest request,String email,String tel){
 		RandomSecret randomSecret = new RandomSecret();

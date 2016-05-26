@@ -20,5 +20,9 @@ public interface UserService {
 	public User getUserByName(String name);
 
 	public void disable(String id);
+
+	public User getUserByPhone(String tel);
+
+	public User getUserByEmail(String email);
 		
 }

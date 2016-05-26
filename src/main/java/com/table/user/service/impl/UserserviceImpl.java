@@ -60,6 +60,18 @@ public class UserserviceImpl extends BaseService implements UserService {
 		User user = dao.findObject(hql, name);
 		return user;
 	}
+	
+	public User getUserByPhone(String tel){
+		String hql = "from User where tel =?";
+		User user = dao.findObject(hql, tel);
+		return user;
+	}
+	
+	public User getUserByEmail(String email){
+		String hql = "from User where email =?";
+		User user = dao.findObject(hql, email);
+		return user;
+	}
 
 	@Override
 	public void disable(String id) {

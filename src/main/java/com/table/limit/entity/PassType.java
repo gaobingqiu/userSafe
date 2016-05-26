@@ -5,7 +5,7 @@ public enum PassType {
 	  // 成员变量
     private int count;
     private int time;
-    private int index;
+    private int type;
     
     /**
      * 获取最大错误次数
@@ -14,9 +14,9 @@ public enum PassType {
      * @author gbq
      * 2016年4月24日
      */
-    public static int getCount(int index) {
+    public static int getCount(int type) {
         for (PassType passType : PassType.values()) {
-            if (passType.getIndex() == index) {
+            if (passType.getType() == type) {
                 return passType.count;
             }
         }
@@ -30,9 +30,9 @@ public enum PassType {
      * @author gbq
      * 2016年4月24日
      */
-    public static int getTime(int index) {
+    public static int getTime(int type) {
         for (PassType passType : PassType.values()) {
-            if (passType.getIndex() == index) {
+            if (passType.getType() == type) {
                 return passType.time;
             }
         }
@@ -40,17 +40,17 @@ public enum PassType {
     }
     
     private PassType(int count,int time,int index) {
-		this.index = index;
+		this.type = index;
 		this.count = count;
 		this.time = time;
 	}
     
-	public int getIndex() {
-		return index;
+	public int getType() {
+		return type;
 	}
 
-	public void setIndex(int index) {
-		this.index = index;
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	public int getCount() {

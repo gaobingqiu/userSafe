@@ -13,7 +13,7 @@ import javax.persistence.Table;
  * @author gbq
  */
 @Entity
-@Table(name = "advise")
+@Table(name = "security_code")
 public class  SecurityCode implements Serializable {
     /**
      * 
