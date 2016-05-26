@@ -10,15 +10,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.base.BaseController;
+import com.base.HttpUtils;
+import com.base.random.RandomSecret;
 import com.table.advise.entity.Advise;
 import com.table.advise.service.AdviseService;
+import com.table.user.entity.User;
+import com.table.user.service.UserService;
 
 @Controller
 @RequestMapping("/index")
 public class IndexController extends BaseController {
 	@Autowired
 	AdviseService adviseService;
+	@Autowired
+	UserService userService;
 
+	@RequestMapping("/addAdvise")
+	@ResponseBody
+	public String getCode(HttpServletRequest request,String email,String tel){
+		RandomSecret randomSecret = new RandomSecret();
+		if(null==email){
+			randomSecret.getNums(request, tel);
+		}
+		if(null==tel){
+			randomSecret.getNum(request, email);
+		}
+		return "success";
+	}
+	
 	@RequestMapping("/addAdvise")
 	@ResponseBody
 	public String addAdvise(HttpServletRequest request, String userName, String tel, String content, String email) {
@@ -65,7 +84,11 @@ public class IndexController extends BaseController {
 	}
 
 	@RequestMapping("/advise")
-	public String advise(HttpServletRequest request) {
+	public String advise(HttpServletRequest request,Model model) {
+		HttpSession session = HttpUtils.getSession(request);
+		String userId = (String) session.getAttribute("userId");
+		User user = userService.getUser(userId);
+		model.addAttribute("userName", user.getUserName());
 		return "index/advise";
 	}
 

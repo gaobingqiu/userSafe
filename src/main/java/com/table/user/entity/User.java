@@ -27,8 +27,11 @@ public class  User implements Serializable {
     @Column(name="Id",length = 11)
     private String id;
 
-    @Column(name="user_name",length = 25)
+    @Column(name="user_name",length = 50)
     private String userName;
+    
+    @Column(name="real_name",length = 50)
+    private String realName;
 
     @Column(length = 30)
     private String password;
@@ -155,4 +158,17 @@ public class  User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+
+	public int getEnable() {
+		return enable;
+	}
+    
 }

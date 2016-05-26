@@ -43,7 +43,7 @@
 
 <div class="waiceng">
 	<textarea id="view" class="textarea" rows="5" name="content" placeholder="请填写您在使用过程中遇到的问题和建议，感谢您的支持，谢谢。" ></textarea>
-	账&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp户:&nbsp&nbsp&nbsp&nbsp${loginName }<br/>
+	账&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp户:&nbsp&nbsp&nbsp&nbsp${userName }<br/>
 	联系姓名：<input id="realName" name="userName" class="input" value="${realName }" type="text" /><br/>
 	联系电话：<input id="serviceNum" name="tel" class="input" value="${serviceNum }" type="text" /><br/>
 	邮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp箱：<input id="email" name="eamil" class="input" value="${email }" type="text" /><br/>

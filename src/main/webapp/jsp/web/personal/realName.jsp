@@ -30,28 +30,30 @@
     	<div class="name_jzk">
             <div class="name_srkh">
             	<span>姓名：</span>
-            	<c:if test="${realnameFlag=='1'}">
+            	<c:if test='${!empty realName}'>
             		<input id="userName" name="userName" type="text" value="${realName}" disabled="disabled">
             	</c:if>
-            	<c:if test="${realnameFlag!='1'}">
+            	<c:if test='${empty realName}'>
             		<input id="userName" name="userName" type="text" placeholder="请输入真实的姓名"/>
             	</c:if>
             </div>
             <div class="name_srkh">
                	<span>身份证：</span>
-            	<c:if test="${realnameFlag=='1'}">
-            		<input id="certNum" name="certNum" type="text" value="${certNum}" disabled="disabled">
+            	<c:if test='${!empty idNum}'>
+            		<input id="certNum" name="certNum" type="text" value="${idNum}" disabled="disabled">
             	</c:if>
-            	<c:if test="${realnameFlag!='1'}">	
+            	<c:if test='${empty idNum}'>	
             		<input id="certNum" name="certNum" type="text" placeholder="请输入真实的身份证号">
             	</c:if>
             </div>
         </div>
     </div>
-    <c:if test="${realnameFlag=='1'}">
+    <c:if test='${empty idNum}'>	
     	<div class="phone_button" style="height:70px">
 	          <a href="javascript:realNameValid();" class="phone_back">实名认证</a>
 	    </div>
     </c:if>
 </body>
+<script src="/js/jquery-1.11.0.min.js"></script>
+<script src="/js/web/personal/realName.js"></script>
 </html>

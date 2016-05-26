@@ -57,7 +57,7 @@ public class LoginController extends BaseController {
 	@RequestMapping("/register")
 	public String register(HttpServletRequest request, String userName, String password, Integer code)
 			throws Exception {
-		if (!indexService.checkCode(code)) {
+		if (!indexService.checkCode(request,code)) {
 			return "404";
 		}
 		if (loginService.register(userName, password)) {
