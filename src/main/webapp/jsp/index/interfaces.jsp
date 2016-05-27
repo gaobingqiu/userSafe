@@ -34,9 +34,10 @@ h1 {
 	<div id="buttonContainer">
 		<a href="javascript:loginTest();" class="button big blue">快捷安全登录测试</a>
 		<a href="javascript:registerTest();" class="button big green">快捷安全注册测试</a>
-		</br>
-			<input type="text" name="userName" id="userName"> 
-			<input type="button" value="提交" onclick="submit()">
+		<div id="register" style="display: none;">
+		<input type="text" name="userName" id="userName" class="button medium gray"> 
+		<input type="button" value="提交" onclick="submit()" class="button small blue">
+		</div>
 	</div>
 </body>
 <link rel="stylesheet" type="text/css" href="/css/button/page.css" />

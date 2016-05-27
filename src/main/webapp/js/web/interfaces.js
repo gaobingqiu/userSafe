@@ -30,5 +30,5 @@ function submit(){
 	});
 }
 function registerTest(){
-	$("#form").show();
+	$("#register").show();
 }
