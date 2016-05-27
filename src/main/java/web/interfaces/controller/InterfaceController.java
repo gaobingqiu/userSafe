@@ -20,8 +20,8 @@ public class InterfaceController extends BaseController{
 	@Autowired
 	private InterfaceService interfaceService;
 	
-	public List<PassVo> quickPass(HttpServletRequest request,String verifyCode,String webName,String userName) {
-		List<PassVo> list = interfaceService.quickPass(request,verifyCode,webName,userName);
+	public List<PassVo> quickPass(HttpServletRequest request,String verifyCode,String url,String userName) {
+		List<PassVo> list = interfaceService.quickPass(request,verifyCode,url,userName);
 		return list;
 	}
 

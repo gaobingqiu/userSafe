@@ -13,8 +13,8 @@ import javax.persistence.Table;
  * @author gbq
  */
 @Entity
-@Table(name = "limit")
-public class Limit implements Serializable {
+@Table(name = "errors")
+public class ErrorLimit implements Serializable {
     /**
      * 2016年3月3日
      */
@@ -24,35 +24,33 @@ public class Limit implements Serializable {
     @Id  
     //主键自动增长型
     @GeneratedValue 
-    @Column(name="Id",length = 11)
-    private Integer id;
+    @Column(name="Id",length = 20)
+    private String id;
 
-    @Column(name="user_id",length = 50)
+    @Column(name="user_Id",length = 50)
     private String userId;
-
-    @Column
-    private int type;
+    
+    @Column(name="type")
+    private Integer type;
+ 
+    @Column(name="enable")
+    private int enable;
+    
+    @Column(name="enable_time",length = 50)
+    private String enableTime;
+    
+    @Column(name="now_time",length = 50)
+    private String currentTime;
     
     @Column(name="current_count")
     private int currentCount;
     
-    @Column(name="pass_count")
-    private int passCount;
     
-    @Column(name="enable")
-    private int enable;
-    
-    @Column(name="current_time",length = 50)
-    private String currentTime;
-
-    @Column(name="enable_time",length = 50)
-    private String enableTime;
-    
-	public Integer getId() {
+	public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -64,11 +62,11 @@ public class Limit implements Serializable {
 		this.userId = userId;
 	}
 
-	public int getType() {
+	public Integer getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 
@@ -78,14 +76,6 @@ public class Limit implements Serializable {
 
 	public void setCurrentCount(int currentCount) {
 		this.currentCount = currentCount;
-	}
-
-	public int getPassCount() {
-		return passCount;
-	}
-
-	public void setPassCount(int passCount) {
-		this.passCount = passCount;
 	}
 
 	public int getEnable() {

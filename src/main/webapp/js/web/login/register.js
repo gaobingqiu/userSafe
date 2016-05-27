@@ -27,7 +27,24 @@ window.onload=function(){
         
 	    times=60,
 	    timer=null;
-	    send.onclick=function(){      
+	    send.onclick=function(){   
+	    	var serviceNum = $("#serviceNum").val();
+	    	if(serviceNum==null||serviceNum.length==0){
+	    		return;
+	    	}
+	    	$.ajax({
+	    		type : "POST",
+	    		url : "/index/getCode.do",
+	    		data : {
+	    			"tel":serviceNum,
+	    		},
+	    		success : function(data) {
+	    			alert("请查看验证码！");
+	    		},
+	    		error : function() {
+	    			alert("获取连接异常！");
+	    		}
+	    	});
 	      // 计时开始 
             timer = setInterval(djs,1000);
 	    } 

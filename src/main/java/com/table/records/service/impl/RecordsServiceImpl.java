@@ -1,5 +1,6 @@
 package com.table.records.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.base.BaseService;
 import com.base.dao.PageBean;
 import com.base.dao.Pager;
+import com.base.encrypt.aes.AES;
 import com.table.records.entity.Records;
 import com.table.records.service.RecordsService;
 import com.table.user.entity.User;
@@ -65,7 +67,35 @@ public class RecordsServiceImpl extends BaseService implements RecordsService {
 		String userId = (String) session.getAttribute("userId");
 		int page = pageBean.getPageNo();
 		int rows = pageBean.getPageSize();
+		Pager<Records> pager = new Pager<Records>();
+		pager = dao.findPager(hql, page, rows,userId);
+		List<Records> list =new ArrayList<Records>();
+		List<Records> list2 =new ArrayList<Records>();
+		list= pager.getRows();
+		Records record =new Records();
+		String userPassword;
+		for (Records records : list) {
+			record=records;
+			try {
+				userPassword = AES.Decrypt(records.getPassword(), "1234567890123456");
+				record.setPassword(userPassword);
+				list2.add(record);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+		pager.setRows(list2);
 		return dao.findPager(hql, page, rows,userId);
+	}
+	
+	public List<Records> getByList(HttpServletRequest request, PageBean pageBean){
+		String hql="from Records where userId =?";
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		int page = pageBean.getPageNo();
+		int rows = pageBean.getPageSize();
+		return dao.findList(hql,page,rows,userId);
 	}
 	
 	public String getWeb(String userName,String title){
@@ -77,4 +107,6 @@ public class RecordsServiceImpl extends BaseService implements RecordsService {
 		return title;
 		return null;
 	}
+	
+	
 }

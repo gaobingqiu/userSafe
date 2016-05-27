@@ -17,6 +17,8 @@ import com.table.advise.service.AdviseService;
 import com.table.user.entity.User;
 import com.table.user.service.UserService;
 
+import web.index.service.IndexService;
+
 @Controller
 @RequestMapping("/index")
 public class IndexController extends BaseController {
@@ -24,20 +26,31 @@ public class IndexController extends BaseController {
 	AdviseService adviseService;
 	@Autowired
 	UserService userService;
+	@Autowired
+	IndexService indexService;
 
 	@RequestMapping("/getCode")
 	@ResponseBody
-	public String getCode(HttpServletRequest request,String email,String tel){
-		RandomSecret randomSecret = new RandomSecret();
-		if(null==email){
-			randomSecret.getNums(request, tel);
+	public String getCode(HttpServletRequest request, String email, String tel) {
+		Integer code = Integer.valueOf(RandomSecret.getNum());
+		if (null == email) {
+			if (indexService.setTelCode(tel, code)) {
+				return "success";
+			} else {
+				return "error";
+			}
+
 		}
-		if(null==tel){
-			randomSecret.getNum(request, email);
+		if (null == tel) {
+			if (indexService.setEmailCode(email, code)) {
+				return "success";
+			} else {
+				return "error";
+			}
 		}
 		return "success";
 	}
-	
+
 	@RequestMapping("/addAdvise")
 	@ResponseBody
 	public String addAdvise(HttpServletRequest request, String userName, String tel, String content, String email) {
@@ -84,7 +97,7 @@ public class IndexController extends BaseController {
 	}
 
 	@RequestMapping("/advise")
-	public String advise(HttpServletRequest request,Model model) {
+	public String advise(HttpServletRequest request, Model model) {
 		HttpSession session = HttpUtils.getSession(request);
 		String userId = (String) session.getAttribute("userId");
 		User user = userService.getUser(userId);

@@ -54,7 +54,17 @@ public class SecurityCodeServiceImpl extends BaseService implements SecurityCode
 	}
 
 	public SecurityCode getSecurityCodeByUserId(String userId){
-		String hql="from SecurityCode where userId=?";
+		String hql="from SecurityCode where userId=? order by id desc";
 		return dao.findObject(hql, userId);
+	}
+	
+	public SecurityCode getSecurityCodeByTel(String tel){
+		String hql="from SecurityCode where tel=? order by id desc";
+		return dao.findObject(hql, tel);
+	}
+	
+	public SecurityCode getSecurityCodeByEmail(String email){
+		String hql="from SecurityCode where tel=? order by id desc";
+		return dao.findObject(hql, email);
 	}
 }

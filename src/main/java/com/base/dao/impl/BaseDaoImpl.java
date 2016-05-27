@@ -39,7 +39,10 @@ public class BaseDaoImpl implements BaseDao {
 	@Override
 	public <T> T findObject(String hql, Object... objects) {
 		// TODO Auto-generated method stub
-		List<T> list = findList(hql, objects);
+		session = this.getSession();
+		Query query = session.createQuery(hql);
+		setParameter(query, objects);
+		List<T> list = query.list();
 		return (null == list || list.size() == 0) ? null : list.get(0);
 	}
 
@@ -73,11 +76,13 @@ public class BaseDaoImpl implements BaseDao {
 	}
 
 	@Override
-	public <T> List<T> findList(String hql, Object... objects) {
+	public <T> List<T> findList(String hql, int page,int rows,Object... objects) {
 		// TODO Auto-generated method stub
 		session = this.getSession();
 		Query query = session.createQuery(hql);
 		setParameter(query, objects);
+		query.setFirstResult((page - 1) * rows);
+		query.setMaxResults(page * rows);
 		return query.list();
 	}
 

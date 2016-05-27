@@ -28,10 +28,10 @@ public class LoginController extends BaseController {
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, String userName, String password, Model model) {
 		User user = loginService.userLogin(request, userName, password);
-		if(!indexService.limitAble(request, 1)){
+		if (!indexService.limitAble(request, 1)) {
 			return "400";
 		}
-		if (null!=user) {
+		if (null != user) {
 			model.addAttribute("image", user.getImage());
 			model.addAttribute("tel", user.getTel());
 			model.addAttribute("email", user.getEmail());
@@ -62,12 +62,13 @@ public class LoginController extends BaseController {
 	}
 
 	@RequestMapping("/register")
-	public String register(HttpServletRequest request, String userName, String password, Integer code)
+	public String register(HttpServletRequest request, String userName, String tel,String password, Integer code,Model model)
 			throws Exception {
-		if (!indexService.checkCode(request,code)) {
+		if (!indexService.checkCodeByTel(tel, code)) {
 			return "404";
 		}
-		if (loginService.register(userName, password)) {
+		if (loginService.register(userName,tel, password)) {
+			model.addAttribute("userName", userName);
 			return "web/login/showResult";
 		}
 		return "404";
@@ -77,36 +78,37 @@ public class LoginController extends BaseController {
 	public String toReset(HttpServletRequest request) {
 		return "web/login/reset";
 	}
-	
+
 	@RequestMapping("/resetTel")
 	@ResponseBody
-	public String resetTel(HttpServletRequest request, String phone, Integer code,String password) {
-		User user = userService.getUserByPhone(phone);
+	public String resetTel(HttpServletRequest request, String tel, Integer code, String password) {
+		User user = userService.getUserByPhone(tel);
 		if (!indexService.resetCode(user.getId(), code)) {
 			return "error";
 		} else {
-			user.setPassword(password);
-			userService.saveOrUpdate(user);
-			return "success";
+			if(!loginService.resetPassword(user, password)){
+				return "error";
+			}
 		}
-
+		return "success";
 	}
-	
+
 	@RequestMapping("/toResetEmail")
 	public String toResetEmail(HttpServletRequest request) {
-		return "web/login/ResetEmail";
+		return "web/login/resetEmail";
 	}
-	
+
 	@RequestMapping("/resetEmail")
 	@ResponseBody
-	public String resetEmail(HttpServletRequest request, String email, Integer code,String password) {
+	public String resetEmail(HttpServletRequest request, String email, Integer code, String password) {
 		User user = userService.getUserByEmail(email);
 		if (!indexService.resetCode(user.getId(), code)) {
 			return "error";
-		} else {
-			user.setPassword(password);
-			userService.saveOrUpdate(user);
-			return "success";
+		}else {
+			if(!loginService.resetPassword(user, password)){
+				return "error";
+			}
 		}
+		return "success";
 	}
 }

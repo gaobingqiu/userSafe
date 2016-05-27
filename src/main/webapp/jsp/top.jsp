@@ -25,9 +25,6 @@
 		<li><a href="/jsp/index2.html" target="rightFrame"
 			class="selected"><img src="/images/manage/icon01.png" title="工作台" />
 			<h2>工作台</h2></a></li>
-		<li><a href="/jsp/manage/tools.html" target="rightFrame"><img
-				src="/images/manage/icon04.png" title="常用工具" />
-			<h2>常用工具</h2></a></li>
 		<li><a href="/jsp/manage/computer.html" target="rightFrame"><img
 				src="/images/manage/icon05.png" title="文件管理" />
 			<h2>文件管理</h2></a></li>

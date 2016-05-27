@@ -62,7 +62,7 @@ public class UserserviceImpl extends BaseService implements UserService {
 	}
 	
 	public User getUserByPhone(String tel){
-		String hql = "from User where tel =?";
+		String hql = "from User where tel=?";
 		User user = dao.findObject(hql, tel);
 		return user;
 	}

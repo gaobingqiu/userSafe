@@ -42,7 +42,7 @@
 			<div class="mus_tou"
 				onclick="window.location.href='/personal/uploadImg.do'"
 				style="margin-left: 100px; width: 90px; float: left;">
-				<img class="ger_tou" src="/images/upload/images/151464239694282.png"
+				<img class="ger_tou" src="${image }"
 					style="border: 0px; background: none; width: 116px; height: 120px; margin-bottom: 17px;">
 			</div>
 			<br /><br /><br /><br /><br /><br /><br /><br />

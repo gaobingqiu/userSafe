@@ -58,18 +58,32 @@ public class LoginService {
 		
 	}
 	
-	public boolean register(String userName, String password) {
+	public boolean register(String userName,String tel, String password) {
 		User user = new User();
 		String safePassWord;
 		try {
 			safePassWord = AES.Encrypt(password, "1234567890123456");
 			user.setPassword(safePassWord);
 			user.setUserName(userName);
+			user.setTel(tel);
 			userService.saveOrUpdate(user);
 			return true;
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean resetPassword(User user,String password){
+		try {
+			String safePassWord = AES.Encrypt(password, "1234567890123456");
+			user.setPassword(safePassWord);
+			userService.saveOrUpdate(user);
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 			return false;
 		}
 	}

@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.base.BaseController;
 import com.base.HttpUtils;
 import com.base.Result;
-import com.base.dao.PageBean;
-import com.base.dao.Pager;
-import com.table.records.entity.Records;
 import com.table.records.service.RecordsService;
 import com.table.user.entity.User;
 import com.table.user.service.UserService;
@@ -38,18 +35,7 @@ public class PersonalController extends BaseController {
 
 	@RequestMapping("/codeManage")
 	public String codeManage(HttpServletRequest request, Integer page, Integer rows, Model model) {
-		PageBean pageBean = new PageBean();
-		if (null == page) {
-			page = 1;
-		}
-		if (null == rows) {
-			rows = 10;
-		}
-		pageBean.setPageNo(page);
-		pageBean.setPageSize(rows);
-		Pager<Records> pager = recordsService.getByPage(request, pageBean);
-		model.addAttribute("pager", pager);
-		return "web/personal/codeManage";
+		return "table/records/list";
 	}
 
 	@RequestMapping("/update")

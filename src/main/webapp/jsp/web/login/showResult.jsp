@@ -15,7 +15,7 @@
 		<p>恭喜您注册成功！</p>
 		<div class="s_msg">
 			<div class="s_title">
-				您的用户名：<span class="s_red">13137844382</span>
+				您的用户名：<span class="s_red">${username }</span>
 			</div>
 			<div class="s_title">进行个人中心，开始你账号安全之旅吧：</div>
 			<span class="s_redlink">

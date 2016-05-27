@@ -29,6 +29,20 @@ window.onload=function(){
 	    timer=null;
 	    send.onclick=function(){      
 	      // 计时开始 
+	    	var email = $("#email").val();
+	    	$.ajax({
+	    		type : "POST",
+	    		url : "/index/getCode.do",
+	    		data : {
+	    			"email":email,
+	    		},
+	    		success : function(data) {
+	    			alert("请查看验证码！");
+	    		},
+	    		error : function() {
+	    			alert("获取连接异常！");
+	    		}
+	    	});
             timer = setInterval(djs,1000);
 	    } 
         function djs(){
@@ -118,22 +132,7 @@ window.onload=function(){
     }
         
 }
-function getCode(){
-	var email = $("#email").val();
-	$.ajax({
-		type : "POST",
-		url : "/index/getCode.do",
-		data : {
-			"email":email,
-		},
-		success : function(data) {
-			alert("请查看验证码！");
-		},
-		error : function() {
-			alert("获取连接异常！");
-		}
-	});
-}
+
 function submitEmail(){
 	var email = $("#email").val();
 	var code = $("#code").val();

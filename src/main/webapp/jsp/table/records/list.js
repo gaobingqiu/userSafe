@@ -6,13 +6,12 @@ function pageInit(){
       {
         url : "/records/getAllRecords.do",
         datatype : "json",
-        colNames : [ 'id', '用户名', '密码','年龄','操作'],
+        colNames : [ 'id', '网站', '密码','网址'],
         colModel : [ 
                      {name : 'id',index : 'id',width : 55,editable:true}, 
-                     {name : 'userName',index : 'userName',width : 90,editable:true}, 
+                     {name : 'name',index : 'userName',width : 90,editable:true}, 
                      {name : 'password',index : 'password',width : 100,editable:true},
-                     {name : 'age',index : 'age',width : 80,editable:true},
-                     {name : 'oprate',width : 80,editable:false},
+                     {name : 'link',index : 'age',width : 80,editable:true},
                    ],
         rowNum : 10,
         rowList : [ 10, 20, 30 ],

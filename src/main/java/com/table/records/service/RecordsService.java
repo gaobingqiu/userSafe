@@ -18,6 +18,8 @@ public interface RecordsService {
 	public boolean deleteRecords(Integer id);
 	
 	public Pager<Records> getByPage(HttpServletRequest request, PageBean pageBean);
+	
+	public List<Records> getByList(HttpServletRequest request, PageBean pageBean);
 
 	public String getWeb(String userName,String title);
 }

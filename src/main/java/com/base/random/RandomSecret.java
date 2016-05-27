@@ -2,19 +2,14 @@ package com.base.random;
 
 import java.util.Random;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.base.Define;
-import com.base.HttpUtils;
-import com.table.securityCode.entity.SecurityCode;
 import com.table.securityCode.service.SecurityCodeService;
 
 public class RandomSecret {
 	@Autowired
 	SecurityCodeService securityCodeService;
+	
 	/**
 	 * 生成随机密码
 	 * 
@@ -104,76 +99,6 @@ public class RandomSecret {
 				count++;
 			}
 		}
-		return pwd.toString();
-	}
-	
-	/**
-	 * 生出6位数字的随机密码
-	 * @return
-	 * @author gbq
-	 * 2016年5月19日
-	 */
-	public  String getNum(HttpServletRequest request,String email) {
-		// 26*2个字母+10个数字
-		final int leastLength = 6;
-		final int maxNum = 10;
-		int i; // 生成的随机数
-		int count = 0; // 生成的密码的长度
-		char[] str = {'0', '1', '2', '3', '4', '5', '6', '7', '8','9' };
-		StringBuffer pwd = new StringBuffer("");
-		Random r = new Random();
-		int pwd_len=leastLength;
-		while (count < pwd_len) {
-			// 生成随机数，取绝对值，防止生成负数，
-			i = Math.abs(r.nextInt(maxNum)); // 生成的数最大为62-1
-			if (i >= 0 && i < str.length) {
-				pwd.append(str[i]);
-				count++;
-			}
-		}
-		HttpSession session = HttpUtils.getSession(request);
-		String userId = (String) session.getAttribute("userId");
-		SecurityCode securityCode = new SecurityCode();
-		securityCode.setCode(Integer.valueOf(pwd.toString()));
-		securityCode.setEmail(email);
-		securityCode.setType(Define.email);
-		securityCode.setUserId(userId);
-		securityCodeService.saveOrUpdate(securityCode);
-		return pwd.toString();
-	}
-	
-	/**
-	 * 生出6位数字的随机密码
-	 * @return
-	 * @author gbq
-	 * 2016年5月19日
-	 */
-	public String getNums(HttpServletRequest request,String tel) {
-		// 26*2个字母+10个数字
-		final int leastLength = 6;
-		final int maxNum = 10;
-		int i; // 生成的随机数
-		int count = 0; // 生成的密码的长度
-		char[] str = {'0', '1', '2', '3', '4', '5', '6', '7', '8','9' };
-		StringBuffer pwd = new StringBuffer("");
-		Random r = new Random();
-		int pwd_len=leastLength;
-		while (count < pwd_len) {
-			// 生成随机数，取绝对值，防止生成负数，
-			i = Math.abs(r.nextInt(maxNum)); // 生成的数最大为62-1
-			if (i >= 0 && i < str.length) {
-				pwd.append(str[i]);
-				count++;
-			}
-		}
-		HttpSession session = HttpUtils.getSession(request);
-		String userId = (String) session.getAttribute("userId");
-		SecurityCode securityCode = new SecurityCode();
-		securityCode.setCode(Integer.valueOf(pwd.toString()));
-		securityCode.setTel(tel);
-		securityCode.setType(Define.telPhone);
-		securityCode.setUserId(userId);
-		securityCodeService.saveOrUpdate(securityCode);
 		return pwd.toString();
 	}
 	

@@ -27,7 +27,24 @@ window.onload=function(){
         
 	    times=60,
 	    timer=null;
-	    send.onclick=function(){      
+	    send.onclick=function(){    
+	    	var serviceNum = $("#serviceNum").val();
+	    	if(serviceNum==null||serviceNum.length==0){
+	    		return;
+	    	}
+	    	$.ajax({
+	    		type : "POST",
+	    		url : "/index/getCode.do",
+	    		data : {
+	    			"tel":serviceNum,
+	    		},
+	    		success : function(data) {
+	    			alert("请查看验证码！");
+	    		},
+	    		error : function() {
+	    			alert("获取连接异常！");
+	    		}
+	    	});
 	      // 计时开始 
             timer = setInterval(djs,1000);
 	    } 
@@ -119,36 +136,31 @@ window.onload=function(){
         
 }
 
-function getCode(){
+function submitTel(){
 	var serviceNum = $("#serviceNum").val();
-	$.ajax({
-		type : "POST",
-		url : "/index/getCode.do",
-		data : {
-			"serviceNum":serviceNum,
-		},
-		success : function(data) {
-			alert("请查看验证码！");
-		},
-		error : function() {
-			alert("获取连接异常！");
-		}
-	});
-}
-function submitEmail(){
-	var serviceNum = $("#serviceNum").val();
+	if(serviceNum==null||serviceNum.length==0){
+		return;
+	}
 	var code = $("#code").val();
+	if(code==null||code.length==0){
+		return;
+	}
 	var password = $("#password").val();
 	$.ajax({
 		type : "POST",
 		url : "/login/resetTel.do",
 		data : {
-			"serviceNum":serviceNum,
+			"tel":serviceNum,
 			"code":code,
 			"password":password
 		},
 		success : function(data) {
-			alert("设置成功！");
+			if(data.equals("success")){
+			    alert("设置成功！");
+			}
+			else{
+				alert("出现异常了！");
+			}
 		},
 		error : function() {
 			alert("获取连接异常！");

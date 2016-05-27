@@ -30,13 +30,14 @@ public enum PassType {
      * @author gbq
      * 2016年4月24日
      */
-    public static int getTime(int type) {
+    public static Long getTime(int type) {
         for (PassType passType : PassType.values()) {
             if (passType.getType() == type) {
-                return passType.time;
+            	Long time = new Long(passType.time);
+                return time;
             }
         }
-        return 0;
+        return new Long(0);
     }
     
     private PassType(int count,int time,int index) {

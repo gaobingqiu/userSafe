@@ -18,5 +18,9 @@ public interface SecurityCodeService {
 	public Pager<SecurityCode> getByPage(PageBean pageBean);
 
 	public SecurityCode getSecurityCodeByUserId(String userId);
+
+	public SecurityCode getSecurityCodeByTel(String tel);
+	
+	public SecurityCode getSecurityCodeByEmail(String email);
 	
 }

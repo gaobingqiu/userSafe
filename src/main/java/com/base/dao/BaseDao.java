@@ -81,7 +81,7 @@ public interface BaseDao {
      * @param objects
      * @return
      */
-    <T> List<T> findList(String hql, Object...objects);
+    <T> List<T> findList(String hql, int page,int rows,Object...objects);
      
     /**
      * 
