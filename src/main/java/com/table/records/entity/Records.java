@@ -51,6 +51,8 @@ public class  Records implements Serializable {
     @Column(name="last_pass_time",length = 25)
     private String lastPassTime;
     
+    @Column(length = 50)
+    private String code;
     
 	public Integer getId() {
         return id;
@@ -122,6 +124,14 @@ public class  Records implements Serializable {
 
 	public void setLastPassTime(String lastPassTime) {
 		this.lastPassTime = lastPassTime;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 }

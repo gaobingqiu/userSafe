@@ -62,7 +62,14 @@ public class WebServiceImpl extends BaseService implements WebService {
 	@Override
 	public Web getWebByName(String webName) {
 		// TODO Auto-generated method stub
-		String hql="from Web where title = ?";
+		String hql="from Web where title like ?";
 		return dao.findObject(hql, webName);
+	}
+	
+	@Override
+	public Web getWebByUrl(String link) {
+		// TODO Auto-generated method stub
+		String hql="from Web where link = ?";
+		return dao.findObject(hql, link);
 	}
 }

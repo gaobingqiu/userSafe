@@ -101,7 +101,7 @@ public class RecordsServiceImpl extends BaseService implements RecordsService {
 	public String getWeb(String userName,String title){
 		Web web = webService.getWebByName(title); 
 		User user = userService.getUserByName(userName);
-		String hql="from Records where userId=? and webId = ?";
+		String hql="from Records where userId=? and webId =?";
 		Records  records = dao.findObject(hql, user.getId(),web.getId());
 		if(null!=records)
 		return title;

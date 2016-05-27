@@ -22,12 +22,13 @@ a {
 }
 
 span {
-	margin-top: 20px;
 	margin-bottom: 20px;
+	margin-left: 15%;
+	margin-right: 20%;
 	display: block;
-	display: none;
 	font-size: 20px;
 	color: black;
+	text-indent:2em;
 }
 
 h1 {

@@ -20,5 +20,7 @@ public interface WebService {
 	public Pager<Web> getByPage(PageBean pageBean);
 
 	public Web getWebByName(String webName);
+
+	Web getWebByUrl(String link);
 	
 }

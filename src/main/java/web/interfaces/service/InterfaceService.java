@@ -1,7 +1,5 @@
 package web.interfaces.service;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.base.BaseService;
-import com.base.random.RandomSecret;
+import com.table.records.entity.Records;
 import com.table.records.service.RecordsService;
+import com.table.user.entity.User;
+import com.table.user.service.UserService;
 import com.table.web.entity.Web;
 import com.table.web.service.WebService;
 
@@ -28,26 +28,34 @@ public class InterfaceService extends BaseService{
 	private RecordsService recordsService;
 	
 	@Autowired 
+	private UserService userService;
+	
+	@Autowired 
 	private WebService webService;
 
-	public List<PassVo> quickPass(HttpServletRequest request,String verifyCode, String webName, String userName) {
+	public PassVo quickPass(HttpServletRequest request,String verifyCode, String webName, String userName) {
 		// TODO Auto-generated method stub
 		Web web = webService.getWebByName(webName);
 		HttpSession session = request.getSession();
-		String currentName = (String) session.getAttribute("userName");
-		if(null==currentName||!currentName.equals(userName)){
+		String userId = (String) session.getAttribute("userId");
+		User user = userService.getUser(userId);
+		if(null==user){
 			return null;
 		} 
-		if(web.getTitle().endsWith(recordsService.getWeb(userName, webName)))
-			return null;
-		return null;
+		if(web.getTitle().equals(recordsService.getWeb(userName, webName))){
+			return new PassVo(request);
+		}
+		return null; 
 	}
 
-	public List<RegisterVo> quickRegister(HttpServletRequest request,String verifyCode, String webName, String userName) {
+	public RegisterVo quickRegister(HttpServletRequest request,String verifyCode, String webName, String userName) {
 		// TODO Auto-generated method stub
-		String password = RandomSecret.genRandomNum();
-		log.debug(password);
-		return null;
+		Records records = new Records();
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		User user = userService.getUser(userId);
+		records.setUserId(userId);
+		return new RegisterVo(user);
 	}
 	
 }

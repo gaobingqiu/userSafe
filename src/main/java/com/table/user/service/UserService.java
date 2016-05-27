@@ -24,5 +24,7 @@ public interface UserService {
 	public User getUserByPhone(String tel);
 
 	public User getUserByEmail(String email);
+
+	public User getUserById(String userId);
 		
 }

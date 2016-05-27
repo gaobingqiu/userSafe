@@ -4,12 +4,17 @@
 <html>
 <head>
 <%@ include file="/header.jsp"%>
+<script src="/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/js/web/interfaces.js"></script>
 <style type="text/css">
 span {
 	margin-bottom: 20px;
+	margin-left: 15%;
+	margin-right: 20%;
 	display: block;
 	font-size: 20px;
 	color: black;
+	text-indent: 2em;
 }
 
 h1 {
@@ -26,6 +31,13 @@ h1 {
 		保护用户密码安全的目的。对于不支持这种方式的网站，会采用直接发送用户名和密码的方式，但是会提醒用户，而且会加入一个安全位校对。 </span>
 	<span>快捷安全注册，也是是一个向广大网站开放的接口。用户采用该方式时，只要输入相应的用户名，后台能自动生成安全性极好的密码；更重要的是，网站需要什么资料，比如身份证号码，手机号码和地址等等信息时，只要用户授权，直接向网站发送相应的信息。省去了身份证合法验证，手
 		机号码验证等等繁杂的过程，极大的方便用户和网站。这两个开放性的接口，解决了用户密码不安全的问题。</span>
+	<div id="buttonContainer">
+		<a href="javascript:loginTest();" class="button big blue">快捷安全登录测试</a>
+		<a href="javascript:registerTest();" class="button big green">快捷安全注册测试</a>
+		</br>
+			<input type="text" name="userName" id="userName"> 
+			<input type="button" value="提交" onclick="submit()">
+	</div>
 </body>
 <link rel="stylesheet" type="text/css" href="/css/button/page.css" />
 <link rel="stylesheet" type="text/css" href="/css/button/buttons.css" />

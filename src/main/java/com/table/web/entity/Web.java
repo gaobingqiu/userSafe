@@ -25,7 +25,7 @@ public class  Web implements Serializable {
     //主键自动增长型
     @GeneratedValue 
     @Column(name="Id",length = 11)
-    private Integer id;
+    private String id;
 
     @Column(length = 25)
     private String member;
@@ -41,12 +41,15 @@ public class  Web implements Serializable {
 
     @Column(length = 50)
     private String describle;
+    
+    @Column(length = 50)
+    private String code;
 
-	public Integer getId() {
+	public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -89,5 +92,12 @@ public class  Web implements Serializable {
 	public void setLink(String link) {
 		this.link = link;
 	}
-	
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
 }
