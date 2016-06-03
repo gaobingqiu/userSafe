@@ -58,20 +58,6 @@
 				</a>
 				</li>
 				<div style="display: block;margin: 20px;"></div>
-				<!-- <li class="icon05 li_back" id="li_06">
-					<a href="index/connect.do" onclick="tongji(650726,0);">
-						<p>网站联系</p> <img
-						src="/images/userSafe/icon05.png"
-						style='visibility: hidden;'>
-				</a>
-				</li> -->
-			<!-- 	<li class="icon06 li_back" id="li_07">
-					<a href="index/spread.do" onclick="tongji(650727,0);">
-						<p>宣传直达</p> <img
-						src="/images/userSafe/icon06.png"
-						style='visibility: hidden;'>
-				</a>
-				</li> -->
 				<li class="icon07 li_back" id="li_08">
 					<a href="index/goManager.do" onclick="tongji(650728,0);">
 						<p>后台管理</p> <img
@@ -86,11 +72,6 @@
 						style='visibility: hidden;'>
 				</a>
 				</li>
-				<!-- <li class="icon09" li_back><a href="index/activity.do"
-					onclick="tongji(650730,0);">
-						<p>最新活动</p> <img
-						src="/images/userSafe/icon09.png">
-				</a></li> -->
 			</ul>
 		</div>
 	</div>

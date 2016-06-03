@@ -3,9 +3,9 @@ function realNameValid(){
 	var idNum = $("#certNum").val();
 	$.ajax({
 		type : "POST",
-		url : "/personal/update.do",
+		url : "/personal/setIDCard.do",
 		data : {
-			"userName" : realName,
+			"realName" : realName,
 			"idNum" : idNum,
 		},
 		success : function(data) {

@@ -3,7 +3,6 @@ package web.interfaces.vo;
 import java.io.Serializable;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import com.base.HttpUtils;
 import com.base.random.RandomSecret;
@@ -13,29 +12,28 @@ public class PassVo implements Serializable {
 	 * 
 	 */
 	
-	public PassVo(HttpServletRequest request) {
-		HttpSession session = HttpUtils.getSession(request);
-		String userId = (String) session.getAttribute("userId");
-		this.userId = userId;
+	public PassVo(HttpServletRequest request,String userName) {
+		this.userName = userName;
 		this.time = HttpUtils.getTime();
 		this.code = RandomSecret.getAccess();
 		// TODO Auto-generated constructor stub
 	}
 	private static final long serialVersionUID = 1L;
 	private String code;
-	private String userId;
+	private String userName;
 	private String time;
+	
 	public String getCode() {
 		return code;
 	}
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public String getUserId() {
-		return userId;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getTime() {
 		return time;
@@ -43,9 +41,8 @@ public class PassVo implements Serializable {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
 	@Override
 	public String toString() {
-		return "PassVo [code=" + code + ", userId=" + userId + ", time=" + time + "]";
+		return "PassVo [code=" + code + ", userName=" + userName + ", time=" + time + "]";
 	}
 }

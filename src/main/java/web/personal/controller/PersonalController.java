@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.base.BaseController;
 import com.base.HttpUtils;
-import com.base.Result;
+import com.base.idCard.IdcardValidator;
 import com.table.records.service.RecordsService;
 import com.table.user.entity.User;
 import com.table.user.service.UserService;
@@ -120,8 +120,17 @@ public class PersonalController extends BaseController {
 
 	@RequestMapping("setIDCard")
 	@ResponseBody
-	public Result setIDCard(HttpServletRequest request, String iDCard) {
-		Result result = new Result("验证身份证成功！", true);
-		return result;
+	public String setIDCard(HttpServletRequest request, String idNum,String realName) {
+		IdcardValidator idcardValidator =new IdcardValidator();
+		if(idNum.length()!=18||!idcardValidator.isValidatedAllIdcard(idNum)){
+			return "error";
+		}
+		HttpSession session = HttpUtils.getSession(request);
+		String userId = (String) session.getAttribute("userId");
+		User user = userService.getUser(userId);
+		user.setIdNum(idNum);
+		user.setRealName(realName);
+		userService.saveOrUpdate(user);
+		return "success";
 	}
 }

@@ -17,7 +17,7 @@
             <form method="post" action="/login/login.do">
             <div class="login-bar">
                 <ul>
-                    <li><img src="/css/web/images/login_user.png"><input type="text" class="text" name="userName" placeholder="请输入用户名" /></li>
+                    <li><img src="/css/web/images/login_user.png"><input type="text" class="text" name="userName" placeholder="请输入用户名" required="required"/></li>
                     <li><img src="/css/web/images/login_pwd.png"><input type="password" class="psd"  name="password" placeholder="请输入密码" /></li>
                 </ul>
             </div>

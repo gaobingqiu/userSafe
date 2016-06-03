@@ -43,7 +43,7 @@ public class InterfaceService extends BaseService{
 			return null;
 		} 
 		if(web.getTitle().equals(recordsService.getWeb(userName, webName))){
-			return new PassVo(request);
+			return new PassVo(request,userName);
 		}
 		return null; 
 	}
@@ -55,7 +55,7 @@ public class InterfaceService extends BaseService{
 		String userId = (String) session.getAttribute("userId");
 		User user = userService.getUser(userId);
 		records.setUserId(userId);
-		return new RegisterVo(user);
+		return new RegisterVo(user,userName);
 	}
 	
 }

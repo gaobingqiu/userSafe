@@ -23,13 +23,13 @@ window.onload=function(){
     var pwd_msg=aP[0];
     var pwd2_msg=aP[0];
     var name_length=0;
-    var send=document.getElementById('send'),
-        
+    var send=document.getElementById('send'),     
 	    times=60,
 	    timer=null;
 	    send.onclick=function(){   
 	    	var serviceNum = $("#serviceNum").val();
 	    	if(serviceNum==null||serviceNum.length==0){
+	    		alert("手机号码输入格式有误，请重新输入");
 	    		return;
 	    	}
 	    	$.ajax({
@@ -104,20 +104,6 @@ window.onload=function(){
         if(this.value==""){
             pwd_msg.innerHTML='<i>密码不可为空</i>';
             pwd.style.border='1px solid red';
-        }else if(m==this.value.length){
-            pwd_msg.innerHTML='<i>密码不可使用相同的字符</i>';
-            pwd.style.border='1px solid red';
-        }else if(this.value.length<6 || this.value.length>16){
-            pwd_msg.innerHTML='<i>密码长度应为6到16个字符</i>';
-            pwd.style.border='1px solid red';
-        }else if(!re_n.test(this.value)){
-            pwd_msg.innerHTML='<i>密码不能全为数字</i>';
-            pwd.style.border='1px solid red';
-        }else if(!re_t.test(this.value)){
-            pwd_msg.innerHTML='<i>密码不能全为字母</i>';
-            pwd.style.border='1px solid red';
-        }else{
-            pwd.style.border='1px solid #fff';
         }
     }
     

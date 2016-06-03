@@ -12,8 +12,8 @@ public class RegisterVo implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public RegisterVo(User user) {
-		this.userId = user.getId();
+	public RegisterVo(User user,String userName) {
+		this.userName = userName;
 		this.time = HttpUtils.getTime();
 		this.code = RandomSecret.getAccess();
 		this.tel = user.getTel();
@@ -24,7 +24,7 @@ public class RegisterVo implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	private String tel;
-	private String userId;
+	private String userName;
 	private String image;
 	private String idNum;
 	private String code;
@@ -45,10 +45,10 @@ public class RegisterVo implements Serializable {
 		this.tel = tel;
 	}
 	public String getUserId() {
-		return userId;
+		return userName;
 	}
 	public void setUserId(String userId) {
-		this.userId = userId;
+		this.userName = userId;
 	}
 	public String getImage() {
 		return image;
@@ -76,7 +76,7 @@ public class RegisterVo implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "RegisterVo [tel=" + tel + ", userId=" + userId + ", image=" + image + ", idNum=" + idNum + ", code="
+		return "RegisterVo [tel=" + tel + ", userName=" + userName + ", image=" + image + ", idNum=" + idNum + ", code="
 				+ code + ", time=" + time + ", password=" + password + "]";
 	}
 }
