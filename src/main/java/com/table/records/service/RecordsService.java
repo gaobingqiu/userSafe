@@ -9,13 +9,13 @@ import com.base.dao.Pager;
 import com.table.records.entity.Records;
 
 public interface RecordsService {
-	public Records getRecords(Integer id) ;
+	public Records getRecords(String id) ;
 	
 	public List<Records> getAllRecords();
 	
 	public void saveOrUpdate(Records manager);
 	
-	public boolean deleteRecords(Integer id);
+	public boolean deleteRecords(String id);
 	
 	public Pager<Records> getByPage(HttpServletRequest request, PageBean pageBean);
 	

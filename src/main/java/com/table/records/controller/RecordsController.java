@@ -44,6 +44,20 @@ public class RecordsController extends BaseController {
 		Pager<Records> pager = recordsService.getByPage(request, pageBean);
 		return pager;
 	}
+	
+	@RequestMapping("/getPassword")
+	@ResponseBody
+	public String getPassword(HttpServletRequest request, String id) {
+		Records records = recordsService.getRecords(id);
+		try {
+			String userPassword = AES.Decrypt(records.getPassword(), "1234567890123456");
+			return userPassword;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	/**
 	 * 
@@ -52,7 +66,7 @@ public class RecordsController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping("/getRecords")
-	public String getRecords(Integer id, HttpServletRequest request) {
+	public String getRecords(String id, HttpServletRequest request) {
 		request.setAttribute("records", recordsService.getRecords(id));
 		return "/editRecords";
 	}
@@ -69,7 +83,7 @@ public class RecordsController extends BaseController {
 		String userId = (String) session.getAttribute("userId");
 		records.setUserId(userId);
 		try {
-			String safePassWord = AES.Encrypt(records.getPassCount(), "1234567890123456");
+			String safePassWord = AES.Encrypt(records.getPassword(), "1234567890123456");
 			records.setPassword(safePassWord);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
@@ -86,7 +100,7 @@ public class RecordsController extends BaseController {
 	 * @param response
 	 */
 	@RequestMapping("/delRecords")
-	public void delRecords(Integer id, HttpServletResponse response) {
+	public void delRecords(String id, HttpServletResponse response) {
 
 		String result = "{\"result\":\"error\"}";
 

@@ -9,6 +9,7 @@
 	type="text/css" />
 <script src="/js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="/js/manage/select-ui.min.js"></script>
+<script type="text/javascript" src="/js/web/personal/codeManage.js"></script>
 <script type="text/javascript">
 	KE.show({
 		id : 'content7',

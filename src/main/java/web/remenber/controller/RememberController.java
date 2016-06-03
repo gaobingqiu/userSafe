@@ -22,7 +22,7 @@ public class RememberController {
 	}
 	
 	@RequestMapping("/delete")
-	public boolean delete(HttpServletRequest request,Integer id) {
+	public boolean delete(HttpServletRequest request,String id) {
 		recordsService.deleteRecords(id);
 		return true;
 	}

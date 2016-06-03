@@ -29,7 +29,7 @@ public class RecordsServiceImpl extends BaseService implements RecordsService {
 	UserService userService;
 	
 	@Override
-	public Records getRecords(Integer id) {
+	public Records getRecords(String id) {
 		// TODO Auto-generated method stub
 		return dao.getObject(Records.class, id);
 	}
@@ -43,7 +43,7 @@ public class RecordsServiceImpl extends BaseService implements RecordsService {
 	@Override
 	public void saveOrUpdate(Records records) {
 		// TODO Auto-generated method stub
-		if (null==records.getId()) {
+		if (null==records.getId()||records.getId().length()==0) {
 			dao.saveObject(records);
 		}
 		else {
@@ -52,7 +52,7 @@ public class RecordsServiceImpl extends BaseService implements RecordsService {
 	}
 
 	@Override
-	public boolean deleteRecords(Integer id) {
+	public boolean deleteRecords(String id) {
 		// TODO Auto-generated method stub
 		Records records = this.getRecords(id);
 		dao.delete(records);

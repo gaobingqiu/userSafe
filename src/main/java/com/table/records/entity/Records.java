@@ -25,7 +25,7 @@ public class  Records implements Serializable {
     //主键自动增长型
     @GeneratedValue 
     @Column(name="Id",length = 11)
-    private Integer id;
+    private String id;
 
     @Column(name="web_id",length = 25)
     private String webId;
@@ -54,11 +54,11 @@ public class  Records implements Serializable {
     @Column(length = 50)
     private String code;
     
-	public Integer getId() {
+	public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
