@@ -55,7 +55,7 @@ public class PersonalController extends BaseController {
 		HttpSession session = HttpUtils.getSession(request);
 		String userId = (String) session.getAttribute("userId");
 		User user = userService.getUser(userId);
-		String realName = user.getUserName();
+		String realName = user.getRealName();
 		String idNum = user.getIdNum();
 		model.addAttribute("realName", realName);
 		model.addAttribute("idNum", idNum);
