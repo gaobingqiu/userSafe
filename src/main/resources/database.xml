@@ -12,12 +12,6 @@
         http://www.springframework.org/schema/context  
         http://www.springframework.org/schema/context/spring-context.xsd">  
   
-    <context:annotation-config />  
-    <!-- 自动加载SERVICE DAO ACTION -->  
-    <context:component-scan base-package="cn.com.company.dao.*" />  
-    <context:component-scan base-package="cn.com.company.service.*" />  
-    <context:component-scan base-package="cn.com.company.action" />  
-  
     <!-- 加载properties配置文件 -->  
     <bean id="propertyConfigurer"  
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
@@ -29,6 +23,26 @@
     </bean>  
   
     <bean id="parentDataSource" class="com.alibaba.druid.pool.DruidDataSource">  
+    <!-- 配置连接数 -->
+		<property name="initialSize" value="1" />
+		<property name="minIdle" value="1" />
+		<property name="maxActive" value="20" />
+		<!-- 配置单个连接最长等待时间 -->
+		<property name="maxWait" value="60000" />
+		<!-- 间隔10分钟检查所有连接是否需要关闭或创建 -->
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<!-- 配置最小生存的时间：5分钟 -->
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		<property name="validationQuery" value="SELECT 'x'" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+		<property name="poolPreparedStatements" value="true" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="20" />
+		<!-- 配置监控统计拦截的filters，监控界面sql统计 -->
+		<property name="filters" value="stat" />
     </bean>  
      <!-- 主数据源-->  
     <bean id="masterDataSource" parent="parentDataSource">  
