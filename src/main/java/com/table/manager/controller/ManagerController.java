@@ -68,7 +68,7 @@ public class ManagerController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping("/getManager")
-	public String getManager(Integer id, HttpServletRequest request) {
+	public String getManager(String id, HttpServletRequest request) {
 		request.setAttribute("manager", managerService.getManager(id));
 		return "/editManager";
 	}
@@ -80,7 +80,7 @@ public class ManagerController extends BaseController {
 
 	@RequestMapping("/saveOrUpdate")
 	@ResponseBody
-	public boolean SaveOrUpdate(Manager manager, HttpServletRequest request) {
+	public boolean saveOrUpdate(Manager manager, HttpServletRequest request) {
 		managerService.saveOrUpdate(manager);
 		return true;
 	}
@@ -91,7 +91,7 @@ public class ManagerController extends BaseController {
 	 * @param response
 	 */
 	@RequestMapping("/delManager")
-	public void delManager(Integer id, HttpServletResponse response) {
+	public void delManager(String id, HttpServletResponse response) {
 
 		String result = "{\"result\":\"error\"}";
 

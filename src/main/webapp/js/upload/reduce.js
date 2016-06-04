@@ -101,6 +101,7 @@ function changeCut(url){
         success: function(data) {
              $("#cutArea").hide();
              $("#bo").show();
+             alert("上传成功，请返回！");
         },
         error: function() {
             // 请求出错处理

@@ -25,7 +25,7 @@ public class  Manager implements Serializable {
     //主键自动增长型
     @GeneratedValue 
     @Column(name="Id",length = 11)
-    private Integer id;
+    private String id;
 
     @Column(length = 25)
     private String name;
@@ -42,11 +42,11 @@ public class  Manager implements Serializable {
     @Column(name="last_pass_time",length = 50)
     private String lastPassTime;
 
-	public Integer getId() {
+	public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

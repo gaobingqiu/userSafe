@@ -38,7 +38,7 @@ public class ManagerServiceImpl extends BaseService implements ManagerService {
 	}
 
 	@Override
-	public Manager getManager(Integer id) {
+	public Manager getManager(String id) {
 		// TODO Auto-generated method stub
 		return dao.getObject(Manager.class, id);
 	}
@@ -52,7 +52,7 @@ public class ManagerServiceImpl extends BaseService implements ManagerService {
 	@Override
 	public void saveOrUpdate(Manager manager) {
 		// TODO Auto-generated method stub
-		if (null == manager.getId()) {
+		if (null == manager.getId()||manager.getId().length()==0) {
 			dao.saveObject(manager);
 		} else {
 			dao.updateObject(manager);
@@ -60,7 +60,7 @@ public class ManagerServiceImpl extends BaseService implements ManagerService {
 	}
 
 	@Override
-	public boolean deleteManager(Integer id) {
+	public boolean deleteManager(String id) {
 		// TODO Auto-generated method stub
 		Manager manager = this.getManager(id);
 		dao.delete(manager);

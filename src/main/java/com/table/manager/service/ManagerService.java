@@ -9,13 +9,13 @@ import com.base.dao.Pager;
 import com.table.manager.entity.Manager;
 
 public interface ManagerService {
-	public Manager getManager(Integer id) ;
+	public Manager getManager(String id) ;
 	
 	public List<Manager> getAllManager();
 	
 	public void saveOrUpdate(Manager manager);
 	
-	public boolean deleteManager(Integer id);
+	public boolean deleteManager(String id);
 	
 	public Pager<Manager> getByPage(PageBean pageBean);
 
