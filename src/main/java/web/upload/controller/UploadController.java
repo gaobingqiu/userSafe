@@ -110,13 +110,14 @@ public class UploadController extends BaseController {
 	    		}
 	    		}
 	    		// 生成jpeg图片
-	    		String imgFilePath = "E:/workplace/userSafe/src/main/webapp/images/upload/images";// 新生成的图片
+	    		String imgFilePath = "E:/workplace/userSafe/src/main/webapp/images/upload/images/";// 新生成的图片
 	    		HttpSession session = request.getSession();
 	    		String userId = (String) session.getAttribute("userId");
 	    		User user = userService.getUser(userId);
 	    		Long time= System.currentTimeMillis();//获取当前时间戳
 	    		imgFilePath = imgFilePath+userId+time+".png";
-	    		user.setImage(imgFilePath);
+	    		String truePath = "/images/upload/images/"+userId+time+".png";
+	    		user.setImage(truePath);
 	    		userService.saveOrUpdate(user);
 	    		OutputStream out = new FileOutputStream(imgFilePath);
 	    		out.write(b);
