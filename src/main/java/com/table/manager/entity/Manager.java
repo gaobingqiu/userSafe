@@ -36,8 +36,11 @@ public class  Manager implements Serializable {
     @Column(name="pass_count")
     private int passCount;
     
-    @Column(length = 50)
+    @Column(length = 1024)
     private String password;
+    
+    @Column(length = 1024)
+    private String privateKey;
 
     @Column(name="last_pass_time",length = 50)
     private String lastPassTime;
@@ -88,6 +91,14 @@ public class  Manager implements Serializable {
 
 	public void setLastPassTime(String lastPassTime) {
 		this.lastPassTime = lastPassTime;
+	}
+
+	public String getPrivateKey() {
+		return privateKey;
+	}
+
+	public void setPrivateKey(String privateKey) {
+		this.privateKey = privateKey;
 	}
 
 }

@@ -114,14 +114,14 @@
     </filter-mapping>
     
      <!-- 管理员过滤器 -->
-    <filter>
+    <!-- <filter>
         <filter-name>managerFilter</filter-name>
         <filter-class>com.filter.ManagerFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>managerFilter</filter-name>
         <url-pattern>/managers/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping> -->
     
 
 </web-app>

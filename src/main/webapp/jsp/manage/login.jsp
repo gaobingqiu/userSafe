@@ -31,7 +31,7 @@
 			method="post">
 			<div class="form-item" style="margin-bottom: 50px;">
 				<input id="loginUserName" name="loginName" type="text"
-					placeholder="手机号码/账户/邮箱" class="input70 inputbg input-per" />
+					placeholder="账户" class="input70 inputbg input-per" />
 			</div>
 			<div class="form-item">
 				<input id="pwd" value="" name="password" placeholder="密码" type="password"

@@ -38,6 +38,8 @@ public class ManagerController extends BaseController {
 
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, String loginName, String password, Model model) {
+		if(loginName.length()==0)
+		return "manager";
 		if (managerService.login(request, loginName, password)) {
 			HttpSession session = request.getSession();
 			model.addAttribute("managerName", session.getAttribute("managerName"));
