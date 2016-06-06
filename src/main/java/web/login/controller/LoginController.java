@@ -47,11 +47,11 @@ public class LoginController extends BaseController {
 		return "web/login/login";
 	}
 
-	@RequestMapping("/loginOut")
+	@RequestMapping("/userOut")
 	public String loginOut(HttpServletRequest request) {
 		if (loginService.loginOut(request)) {
 			log.debug("退出登录");
-			return "web/login/loginOut";
+			return "web/login/login";
 		}
 		return "404";
 	}
