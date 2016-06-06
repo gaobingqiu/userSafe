@@ -99,7 +99,7 @@
 						<img src="/images/personal/mus_cai_icon08.png"> <span
 						class="fl">意见反馈</span> <i></i>
 				</a></li>
-				<li><a href="javascript:deleteAccount()"> <img
+				<li><a href="/personal/deleteAccount.do"> <img
 						src="/images/personal/mus_cai_icon09.png"> <span class="fl">删除账号</span>
 						<i></i>
 				</a></li>

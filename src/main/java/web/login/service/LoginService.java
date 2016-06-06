@@ -31,6 +31,9 @@ public class LoginService {
 	 */
 	public User userLogin(HttpServletRequest request,String userName,String password){
 		User user = userService.getUserByName(userName);
+		if(user.getEnable()==0){
+			return null;
+		}
 		try {
 			String userPassword = AES.Decrypt(user.getPassword(), "1234567890123456");
 			if (userPassword.equals(password)) {

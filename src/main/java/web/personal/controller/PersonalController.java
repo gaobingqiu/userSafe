@@ -32,6 +32,16 @@ public class PersonalController extends BaseController {
 	public String toPersonal(HttpServletRequest request) {
 		return "web/personal/personal";
 	}
+	
+	@RequestMapping("/deleteAccount")
+	public String deleteAccount(HttpServletRequest request) {
+		HttpSession session = HttpUtils.getSession(request);
+		String userId = (String) session.getAttribute("userId");
+		User user = userService.getUser(userId);
+		user.setEnable(0);
+		userService.saveOrUpdate(user);
+		return "success";
+	}
 
 	@RequestMapping("/codeManage")
 	public String codeManage(HttpServletRequest request, Integer page, Integer rows, Model model) {
