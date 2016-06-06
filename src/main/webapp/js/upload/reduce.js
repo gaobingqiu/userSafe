@@ -102,6 +102,7 @@ function changeCut(url){
              $("#cutArea").hide();
              $("#bo").show();
              alert("上传成功，请返回！");
+             history.go(-1);
         },
         error: function() {
             // 请求出错处理

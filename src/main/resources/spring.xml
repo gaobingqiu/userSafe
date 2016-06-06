@@ -19,7 +19,7 @@
 		<!-- 后面的条件是为了解决hibernate中文存储乱码问题-->
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/design?useUnicode=true&amp;characterEncoding=UTF-8"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="123456"></property>
+		<property name="password" value="gbq987123"></property>
 		<!-- 配置连接数 -->
 		<property name="initialSize" value="1" />
 		<property name="minIdle" value="1" />
