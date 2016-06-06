@@ -55,6 +55,11 @@ public class IndexController extends BaseController {
 	@ResponseBody
 	public String addAdvise(HttpServletRequest request, String userName, String tel, String content, String email) {
 		Advise advise = new Advise();
+		HttpSession session = HttpUtils.getSession(request);
+		String userId = (String) session.getAttribute("userId");
+		if(null!=userId){
+			advise.setUserId(userId);
+		}
 		advise.setDescrible(content);
 		advise.setEmail(email);
 		advise.setTel(tel);
@@ -100,8 +105,10 @@ public class IndexController extends BaseController {
 	public String advise(HttpServletRequest request, Model model) {
 		HttpSession session = HttpUtils.getSession(request);
 		String userId = (String) session.getAttribute("userId");
-		User user = userService.getUser(userId);
-		model.addAttribute("userName", user.getUserName());
+		if (null != userId) {
+			User user = userService.getUser(userId);
+			model.addAttribute("userName", user.getUserName());
+		}
 		return "index/advise";
 	}
 

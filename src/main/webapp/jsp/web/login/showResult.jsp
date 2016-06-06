@@ -23,9 +23,7 @@
 			</span>
 		</div>
 	</div>
-	<div class="bottom">
-		Copyright &copy; 2014 - 2015 <a href="#" style="color: #555555">系统登陆</a>
-	</div>
+	<div class="bottom">欢迎使用账户中心 <a href="#" style="color: #555555">系统登陆</a></div>
 	</div>
 </body>
 </html>

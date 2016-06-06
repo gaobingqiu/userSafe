@@ -78,7 +78,7 @@ public class RecordsController extends BaseController {
 
 	@RequestMapping("/saveOrUpdate")
 	@ResponseBody
-	public boolean SaveOrUpdate(Records records, HttpServletRequest request) {
+	public boolean saveOrUpdate(Records records, HttpServletRequest request) {
 		HttpSession session = HttpUtils.getSession(request);
 		String userId = (String) session.getAttribute("userId");
 		records.setUserId(userId);

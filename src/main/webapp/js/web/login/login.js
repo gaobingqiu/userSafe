@@ -30,7 +30,7 @@ window.onload=function(){
     
     oPwd.onfocus=function(){
         if(oUser.value==""){
-            aI.innerHTML='手机号不可为空';
+            aI.innerHTML='账号不能为空';
         }
         oPwd.removeAttribute("placeholder");
     }

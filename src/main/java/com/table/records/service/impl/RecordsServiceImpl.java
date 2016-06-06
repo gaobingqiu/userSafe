@@ -72,10 +72,14 @@ public class RecordsServiceImpl extends BaseService implements RecordsService {
 		List<Records> list =new ArrayList<Records>();
 		List<Records> list2 =new ArrayList<Records>();
 		list= pager.getRows();
-		Records record =new Records();
 		String userPassword;
 		for (Records records : list) {
-			record=records;
+			Records record =new Records();
+			record.setCreateTime(records.getCreateTime());
+			record.setId(records.getId());
+			record.setLink(records.getLink());
+			record.setName(records.getName());
+			record.setUserId(userId);
 			try {
 				userPassword = AES.Decrypt(records.getPassword(), "1234567890123456");
 				record.setPassword(userPassword);
@@ -86,7 +90,7 @@ public class RecordsServiceImpl extends BaseService implements RecordsService {
 			}	
 		}
 		pager.setRows(list2);
-		return dao.findPager(hql, page, rows,userId);
+		return pager;
 	}
 	
 	public List<Records> getByList(HttpServletRequest request, PageBean pageBean){

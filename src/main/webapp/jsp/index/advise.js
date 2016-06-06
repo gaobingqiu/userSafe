@@ -25,7 +25,8 @@ function submit() {
 			"tel" : tel
 		},
 		success : function(data) {
-			showWin("#div_mod");
+			alert("谢谢你的建议！");
+			window.location="http://127.0.0.1:8080/";
 		},
 		error : function() {
 			alert("获取连接异常！登录失败！");
