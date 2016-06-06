@@ -11,7 +11,7 @@
 <body>
 <body>
 	<div class="login">
-            <div class="login-title"><p>账号安全管家登录</p>
+            <div class="login-title"><p>账号安全中心登录</p>
                 <i></i>
             </div>
             <form method="post" action="/login/login.do">
@@ -29,7 +29,7 @@
             </form>
         </div>
 		<div style="text-align:center;">
-<div class="bottom">Copyright &copy; 2015 - 2016 <a href="#" style="color: #555555">系统登陆</a></div>
+<div class="bottom">欢迎使用账户中心 <a href="#" style="color: #555555">系统登陆</a></div>
 </div>
 </body>
 </html>

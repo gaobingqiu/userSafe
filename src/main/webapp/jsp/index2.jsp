@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="/css/style.css" rel="stylesheet" type="text/css" />
@@ -22,13 +22,13 @@
     
     <div class="welinfo">
     <span><img src="/images/manage/sun.png" alt="天气" /></span>
-    <b>Admin，你好，欢迎使用后台管理系统</b>
+    <b>${managerName}，你好，欢迎使用后台管理系统</b>
     <a href="#">帐号设置</a>
     </div>
     
     <div class="welinfo">
     <span><img src="/images/manage/time.png" alt="时间" /></span>
-    <i>您上次登录的时间：2016-05-09 15:22</i> （不是您登录的？<a href="#">请点这里</a>）
+    <i>您上次登录的时间：${lastPassTime}</i> （不是您登录的？<a href="/managers/disableThis.do">请点这里</a>）
     </div>
     
     <div class="xline"></div>
@@ -62,7 +62,7 @@
     
     <div class="xline"></div>
     
-    <div class="uimakerinfo"><b>查看网站使用指南，您可以了解更多系统信息</b>(<a href="http://www.uimaker.com" target="_blank">介绍</a>)</div>
+    <div class="uimakerinfo"><b>查看网站使用指南，您可以了解更多系统信息</b>(<a href="#" target="_blank">介绍</a>)</div>
     
     <ul class="umlist">
     <li><a href="#">后台用户设置(权限)</a></li>

@@ -33,6 +33,9 @@ public class  Manager implements Serializable {
     @Column
     private int type;
     
+    @Column
+    private int enable;
+    
     @Column(name="pass_count")
     private int passCount;
     
@@ -99,6 +102,14 @@ public class  Manager implements Serializable {
 
 	public void setPrivateKey(String privateKey) {
 		this.privateKey = privateKey;
+	}
+
+	public int getEnable() {
+		return enable;
+	}
+
+	public void setEnable(int enable) {
+		this.enable = enable;
 	}
 
 }

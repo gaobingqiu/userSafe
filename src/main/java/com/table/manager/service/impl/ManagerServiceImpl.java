@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Base64Utils;
 
 import com.base.BaseService;
+import com.base.HttpUtils;
 import com.base.dao.PageBean;
 import com.base.dao.Pager;
 import com.base.encrypt.rsa.RSAUtils;
@@ -22,6 +23,9 @@ import com.table.manager.service.ManagerService;
 public class ManagerServiceImpl extends BaseService implements ManagerService {
 	public boolean login(HttpServletRequest request, String userName, String password) {
 		Manager manager = this.getManagerByName(userName);
+		if(manager.getEnable()==0){
+			return false;
+		}
 		String truePassWord;
 		try {
 			String privateKey = manager.getPrivateKey();
@@ -46,7 +50,7 @@ public class ManagerServiceImpl extends BaseService implements ManagerService {
 		}
 	}
 
-	private Manager getManagerByName(String userName) {
+	public Manager getManagerByName(String userName) {
 		// TODO Auto-generated method stub
 		String hql = "from Manager where name=?";
 		return dao.findObject(hql, userName);
@@ -80,6 +84,7 @@ public class ManagerServiceImpl extends BaseService implements ManagerService {
 				manager.setLastPassTime(null);
 				manager.setPassCount(0);
 				manager.setPrivateKey(privateKey);
+				manager.setEnable(1);
 				dao.saveObject(manager);
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -115,4 +120,10 @@ public class ManagerServiceImpl extends BaseService implements ManagerService {
 		return retStrFormatNowDate;
 	}
 
+	public void disableThis(HttpServletRequest request){
+		HttpSession session = HttpUtils.getSession(request);
+		String managerName = (String) session.getAttribute("managerName");
+		Manager manager = this.getManagerByName(managerName);
+		manager.setEnable(0);
+	}
 }

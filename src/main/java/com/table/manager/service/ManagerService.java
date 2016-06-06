@@ -20,5 +20,8 @@ public interface ManagerService {
 	public Pager<Manager> getByPage(PageBean pageBean);
 
 	public boolean login(HttpServletRequest request, String userName, String password);
+
+	public void disableThis(HttpServletRequest request);
 	
+	public Manager getManagerByName(String userName);
 }

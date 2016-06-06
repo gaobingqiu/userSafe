@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.base.BaseController;
+import com.base.HttpUtils;
 import com.base.dao.PageBean;
 import com.base.dao.Pager;
 import com.table.manager.entity.Manager;
@@ -34,6 +35,16 @@ public class ManagerController extends BaseController {
 		HttpSession session = request.getSession();
 		model.addAttribute("managerName", session.getAttribute("managerName"));
 		return "top";
+	}
+	
+	@RequestMapping("/index2")
+	public String index2(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		String managerName = (String) session.getAttribute("managerName");
+		Manager manager  = managerService.getManagerByName(managerName);
+		model.addAttribute("lastPassTime",manager.getLastPassTime());
+		model.addAttribute("managerName",managerName);
+		return "index2";
 	}
 
 	@RequestMapping("/login")
@@ -84,6 +95,21 @@ public class ManagerController extends BaseController {
 	@ResponseBody
 	public boolean saveOrUpdate(Manager manager, HttpServletRequest request) {
 		managerService.saveOrUpdate(manager);
+		return true;
+	}
+	
+	@RequestMapping("/loginOut_manager")
+	@ResponseBody
+	public boolean loginOut_manager(HttpServletRequest request) {
+		HttpSession session = HttpUtils.getSession(request);
+		session.invalidate();
+		return true;
+	}
+	
+	@RequestMapping("/disableThis")
+	@ResponseBody
+	public boolean disableThis(HttpServletRequest request) {
+		managerService.disableThis(request);
 		return true;
 	}
 

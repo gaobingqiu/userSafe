@@ -8,7 +8,7 @@
   <frame src="/managers/top.do" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
   <frameset cols="187,*" frameborder="no" border="0" framespacing="0">
     <frame src="/jsp/left.html" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
-    <frame src="/jsp/index2.html" name="rightFrame" id="rightFrame" title="rightFrame" />
+    <frame src="/managers/index2.do" name="rightFrame" id="rightFrame" title="rightFrame" />
   </frameset>
 </frameset>
 <noframes><body>
