@@ -70,7 +70,17 @@
 						<c:if test='${empty idNum}'>
 							<span class="fr">未认证</span>
 						</c:if> 
+				</a></li><li><a href="/personal/realName.do">
+						<img src="/images/personal/mus_cai_icon03.png"> <span
+						class="fl">实名认证</span> <i></i> 
+						<c:if test='${!empty idNum}'>
+							<span class="fr">已认证</span>
+						</c:if> 
+						<c:if test='${empty idNum}'>
+							<span class="fr">未认证</span>
+						</c:if> 
 				</a></li>
+				
 				<li><a href="/personal/viewPhone.do">
 						<img src="/images/personal/mus_cai_icon04.png"> 
 						<span class="fl">手机绑定</span> <i></i>

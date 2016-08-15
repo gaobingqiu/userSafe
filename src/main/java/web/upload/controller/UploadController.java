@@ -1,9 +1,7 @@
 package web.upload.controller;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -24,13 +22,15 @@ import com.base.BaseController;
 import com.table.user.entity.User;
 import com.table.user.service.UserService;
 
-import sun.misc.BASE64Decoder;
-
 @Controller
 @RequestMapping("/file")
 public class UploadController extends BaseController {
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private UploadService uploadService;
+
 	@RequestMapping("/toImage")
 	public String toImage() {
 		return "test/upload/image";
@@ -94,38 +94,27 @@ public class UploadController extends BaseController {
 		}
 		return "/404";
 	}
-	
-	 @RequestMapping("/uploadImg")
-	 @ResponseBody
-	public boolean uploadImg(HttpServletRequest request,String image) {
-	    	if (image == null) // 图像数据为空
-	    		return false;
-	    		BASE64Decoder decoder = new BASE64Decoder();
-	    		try {
-	    		// Base64解码
-	    		byte[] b = decoder.decodeBuffer(image.substring(22));
-	    		for (int i = 0; i < b.length; ++i) {
-	    		if (b[i] < 0) {// 调整异常数据
-	    		b[i] += 256;
-	    		}
-	    		}
-	    		// 生成jpeg图片
-	    		String imgFilePath = "E:/workplace/userSafe/src/main/webapp/images/upload/images/";// 新生成的图片
-	    		HttpSession session = request.getSession();
-	    		String userId = (String) session.getAttribute("userId");
-	    		User user = userService.getUser(userId);
-	    		Long time= System.currentTimeMillis();//获取当前时间戳
-	    		imgFilePath = imgFilePath+userId+time+".png";
-	    		String truePath = "/images/upload/images/"+userId+time+".png";
-	    		user.setImage(truePath);
-	    		userService.saveOrUpdate(user);
-	    		OutputStream out = new FileOutputStream(imgFilePath);
-	    		out.write(b);
-	    		out.flush();
-	    		out.close();
-	    		return true;
-	    		} catch (Exception e) {
-	    		return false;
-	    		}
-	    }
+
+	@RequestMapping("/uploadImg")
+	@ResponseBody
+	public boolean uploadImg(HttpServletRequest request, String image) {
+		if (image == null) // 图像数据为空
+		{
+			return false;
+		}
+		// 生成jpeg图片
+		String imgFilePath = "E:/workplace/userSafe/src/main/webapp/images/upload/images/";// 新生成的图片F
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		User user = userService.getUser(userId);
+		Long time = System.currentTimeMillis();// 获取当前时间戳
+		imgFilePath = imgFilePath + userId + time + ".png";
+		String truePath = "/images/upload/images/" + userId + time + ".png";
+		if (uploadService.SaveManager(image, imgFilePath)) {
+			user.setImage(truePath);
+			userService.saveOrUpdate(user);
+			return true;
+		}
+		return false;
+	}
 }

@@ -53,6 +53,9 @@ public class InterfaceService extends BaseService{
 		Records records = new Records();
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
+		if(null == userId){
+			userId = "15";
+		}
 		User user = userService.getUser(userId);
 		records.setUserId(userId);
 		return new RegisterVo(user,userName);
