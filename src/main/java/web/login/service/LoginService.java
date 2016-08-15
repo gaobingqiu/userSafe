@@ -29,7 +29,7 @@ public class LoginService {
 	 * @author gbq
 	 * 2016年4月19日
 	 */
-	public User userLogin(HttpServletRequest request,String userName,String password){
+	public User userLogin(HttpServletRequest request,String userName,String password,String token){
 		User user = userService.getUserByName(userName);
 		if(user.getEnable()==0){
 			return null;
@@ -38,7 +38,12 @@ public class LoginService {
 			String userPassword = AES.Decrypt(user.getPassword(), "1234567890123456");
 			if (userPassword.equals(password)) {
 				HttpSession session=request.getSession();
-				session.setAttribute("userId", user.getId());
+				if(null==token||token.isEmpty()){
+				session.setAttribute("userId", user.getId());}
+				else {
+					session.setAttribute("mac", token);
+					session.setMaxInactiveInterval(30*60);
+				}
 				return user;
 			}
 			return null;

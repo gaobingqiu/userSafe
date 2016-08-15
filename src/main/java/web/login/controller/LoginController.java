@@ -27,7 +27,7 @@ public class LoginController extends BaseController {
 
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, String userName, String password, Model model) {
-		User user = loginService.userLogin(request, userName, password);
+		User user = loginService.userLogin(request, userName, password,null);
 		if (!indexService.limitAble(request, 1)) {
 			return "400";
 		}
