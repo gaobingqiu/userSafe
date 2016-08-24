@@ -144,7 +144,7 @@ public class ImageUploadInterface {
 			if (!files[i].isEmpty()) {
 				int pre = (int) System.currentTimeMillis();
 				try {
-					String imgFilePath = "D:/tomcat-8/wtpwebapps/userSafe/images/upload/images";// 新生成的图片F
+					String imgFilePath = "D:/tomcat-8/wtpwebapps/userSafe/images/upload/images/";// 新生成的图片F
 					HttpSession session = request.getSession();
 					String userId = (String) session.getAttribute("userId");
 					User user = userService.getUser(userId);
