@@ -54,6 +54,9 @@ public class  User implements Serializable {
     @Column(length = 50)
     private String image;
     
+    @Column(name="android_image",length = 255)
+    private String androidImage;
+    
     @Column(length = 25)
     private String location;
     
@@ -169,6 +172,14 @@ public class  User implements Serializable {
 
 	public int getEnable() {
 		return enable;
+	}
+
+	public String getAndroidImage() {
+		return androidImage;
+	}
+
+	public void setAndroidImage(String androidImage) {
+		this.androidImage = androidImage;
 	}
     
 }

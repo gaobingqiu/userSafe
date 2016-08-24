@@ -1,7 +1,9 @@
 package interfaces.personal;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,9 +16,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import web.upload.controller.UploadService;
@@ -126,5 +130,58 @@ public class ImageUploadInterface {
 			out.flush();
 			out.close();
 		}
+	}
+
+	@RequestMapping("/upload2")
+	public void upload2(@RequestParam("file") CommonsMultipartFile[] files,
+			HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+
+		for (int i = 0; i < files.length; i++) {
+			System.out.println("fileName---------->"
+					+ files[i].getOriginalFilename());
+
+			if (!files[i].isEmpty()) {
+				int pre = (int) System.currentTimeMillis();
+				try {
+					String imgFilePath = "D:/tomcat-8/wtpwebapps/userSafe/images/upload/images";// 新生成的图片F
+					HttpSession session = request.getSession();
+					String userId = (String) session.getAttribute("userId");
+					User user = userService.getUser(userId);
+					Long time = System.currentTimeMillis();// 获取当前时间戳
+					imgFilePath = imgFilePath + userId + time
+							+ files[i].getOriginalFilename();
+					String truePath = "/images/upload/images/" + userId + time
+							+ files[i].getOriginalFilename();
+					user.setAndroidImage(truePath);
+					
+					// 拿到输出流，同时重命名上传的文件
+					FileOutputStream os = new FileOutputStream(imgFilePath);
+					// 拿到上传文件的输入流
+					InputStream in = (InputStream) files[i]
+							.getInputStream();
+
+					// 以写字节的方式写文件
+					int b = 0;
+					while ((b = in.read()) != -1) {
+						os.write(b);
+					}
+					os.flush();
+					os.close();
+					in.close();
+					int finaltime = (int) System.currentTimeMillis();
+					System.out.println(finaltime - pre);
+					userService.saveOrUpdate(user);
+
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("上传出错");
+				}
+			}
+		}
+		PrintWriter out = response.getWriter();
+		out.print("success");
+		out.flush();
+		out.close();
 	}
 }
