@@ -134,8 +134,14 @@ public class ImageUploadInterface {
 
 	@RequestMapping("/upload2")
 	public void upload2(@RequestParam("file") CommonsMultipartFile[] files,
-			HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+			HttpServletRequest request, HttpServletResponse response,
+			String token) throws IOException {
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		String phoneMacString = (String) session.getAttribute("mac");
+		if (!phoneMacString.endsWith(token)) {
+			return;
+		}
 
 		for (int i = 0; i < files.length; i++) {
 			System.out.println("fileName---------->"
@@ -145,8 +151,7 @@ public class ImageUploadInterface {
 				int pre = (int) System.currentTimeMillis();
 				try {
 					String imgFilePath = "D:/tomcat-8/wtpwebapps/userSafe/images/upload/images/";// 新生成的图片F
-					HttpSession session = request.getSession();
-					String userId = (String) session.getAttribute("userId");
+
 					User user = userService.getUser(userId);
 					Long time = System.currentTimeMillis();// 获取当前时间戳
 					imgFilePath = imgFilePath + userId + time
@@ -154,12 +159,11 @@ public class ImageUploadInterface {
 					String truePath = "/images/upload/images/" + userId + time
 							+ files[i].getOriginalFilename();
 					user.setAndroidImage(truePath);
-					
+
 					// 拿到输出流，同时重命名上传的文件
 					FileOutputStream os = new FileOutputStream(imgFilePath);
 					// 拿到上传文件的输入流
-					InputStream in = (InputStream) files[i]
-							.getInputStream();
+					InputStream in = (InputStream) files[i].getInputStream();
 
 					// 以写字节的方式写文件
 					int b = 0;

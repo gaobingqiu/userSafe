@@ -47,6 +47,10 @@ public class LoginService {
 					session.setAttribute("userId", user.getId());
 					session.setMaxInactiveInterval(30 * 60);
 				}
+				if(null==user.getMac()||user.getMac().isEmpty()){
+					user.setMac(token);
+					userService.saveOrUpdate(user);
+				}
 				return user;
 			}
 			return null;

@@ -66,7 +66,18 @@ public class  User implements Serializable {
     @Column(name="id_num",length = 25)
     private String idNum;
     
-    public String getCreateTime() {
+    @Column(name="mac",length = 55)
+    private String mac;
+    
+    public String getMac() {
+		return mac;
+	}
+
+	public void setMac(String mac) {
+		this.mac = mac;
+	}
+
+	public String getCreateTime() {
 		return createTime;
 	}
 
