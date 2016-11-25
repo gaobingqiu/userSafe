@@ -1,14 +1,20 @@
 package interfaces.entity;
 
+import java.io.Serializable;
+
 
 
 /**
  * 网络返回基类 支持泛型
  * Created by gbq
  */
-public class BaseResponse<T> {
+public class BaseResponse<T> implements Serializable{
 
-    private int code = -1;
+    /**
+	 * 2016年11月24日
+	 */
+	private static final long serialVersionUID = 1L;
+	private int code = -1;
     private String msg;
     private T data;
 
